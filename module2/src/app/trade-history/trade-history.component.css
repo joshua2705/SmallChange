@@ -1,0 +1,34 @@
+table{
+    margin-left: 180px;
+    padding-top: 20px;
+    padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    border-collapse: collapse;
+    
+}
+
+td{
+    
+    padding: 10px 50px 10px 30px;
+    border-top: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    text-align: center;
+    
+}
+
+tr{
+    margin-left: 40px;
+}
+
+tr:nth-child(even) {background-color: #d6cdcd;}
+
+h2{
+    margin-left: 600px;
+}
+
+
+
+thead{
+    font-weight: bold;
+}

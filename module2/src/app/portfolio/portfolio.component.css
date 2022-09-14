@@ -1,0 +1,97 @@
+section {
+  margin-top: 2rem;
+}
+
+#overview{
+  display: flex;
+  width: 40%;
+  max-width: 75%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  justify-content: space-around;
+  height: 5rem;
+  padding: 1rem 0rem;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #F5F5F5;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -3rem;
+}
+
+.values {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  max-height: 3rem;
+}
+
+.values p, .values h3 {
+  margin: 0;
+}
+
+.values p{
+  color: #8F8F8F;
+}
+
+#info {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  max-width: 65%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-top: 0.5px solid rgb(236, 236, 236);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 0 2rem;
+  padding-top: 3rem;
+  position: relative;
+  z-index: 0;
+}
+
+.stock {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem 0;
+  z-index: 0;
+}
+
+.stock_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#quantity {
+  display: flex;
+  align-items: baseline;
+  padding-bottom: 0.25rem;
+}
+#quantity h5, #quantity p {
+  margin: 0;
+}
+
+.invested {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding-top: 0.75rem;
+}
+
+.invested p, .invested h4 {
+  margin: 0;
+}
+
+.returns {
+  color: #11D33C;
+}
+
+#info p{
+  color: #8F8F8F;
+}
+
+.stock_info h3, .stock_info #quantity, .stock_info .invested {
+  margin: 0;
+}
