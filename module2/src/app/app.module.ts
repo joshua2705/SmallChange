@@ -14,6 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import {MatPaginatorModule} from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
 
+import { LoginModule } from './login/login.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +25,23 @@ import { NgxPaginationModule } from 'ngx-pagination';
     TradeHistoryComponent,
     TradingComponent,
     NavbarComponent,
+
+    
+    
+   
+    
+   
+   
+
     NavbarLinkComponent,
     HeaderBarComponent,
     
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    LoginModule
     ReactiveFormsModule,
     NgxPaginationModule
   ],
