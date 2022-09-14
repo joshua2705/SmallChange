@@ -27,7 +27,7 @@
     </thead>
 
     <tbody>
-        <tr *ngFor="let stock of stocks">
+        <tr *ngFor="let stock of astocks  | paginate: config">
             <td> {{stock.symbol}} </td>
             <td> {{stock.orderDate}} </td>
             <td> {{stock.transactionDate}} </td>
@@ -37,3 +37,5 @@
         </tr>
     </tbody>
 </table>
+
+<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
