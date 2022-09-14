@@ -7,11 +7,10 @@
     font-size: 32px;
     line-height: 1.5em;
 }
-    
+
 #header-bar {
     margin: 0 auto;
     background-color: #568200;
     padding: 0.5rem 1rem;
-    max-width: 62.5em; 
+    max-width: 100%;
   }
-  
