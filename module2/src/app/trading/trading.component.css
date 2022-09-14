@@ -1,0 +1,30 @@
+section {
+    max-width: 62.5em;
+    margin: auto;
+    text-align: center;
+}
+
+input[type=text]{
+    
+    width: 500px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    border-width: 1px;
+    padding-left: 15px;
+}
+
+input:focus { outline: none; }
+
+.table-container{
+    padding-top: 35px;
+}
+
+.close{
+    outline: none;
+}
+
+.modal-footer{
+    text-align: center;
+    justify-content: center;
+}
