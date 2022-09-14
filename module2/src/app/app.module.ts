@@ -15,6 +15,7 @@ import { UsernameFormControlComponent } from './login/username-form-control/user
 import { PasswordFormControlComponent } from './login/password-form-control/password-form-control.component';
 import { LoginModule } from './login/login.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { LoginModule } from './login/login.module';
     TradingComponent,
     NavbarComponent,
     NavbarLinkComponent
+   
     
    
    
