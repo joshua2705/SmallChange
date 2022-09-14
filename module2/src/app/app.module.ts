@@ -41,7 +41,7 @@ import { LoginModule } from './login/login.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LoginModule
+    LoginModule,
     ReactiveFormsModule,
     NgxPaginationModule
   ],
