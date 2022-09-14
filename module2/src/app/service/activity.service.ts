@@ -51,6 +51,28 @@ export class ActivityService {
       percentChange:0,
       priceChange:0
     },
+    {
+      symbol: 'LOW1',
+      quantity: 300,
+      orderDate: '12/02/2022',
+      transactionDate: '12/02/2022',
+      exgPrice: 65,
+      type: 'short',
+      totalInvestment: 0,
+      percentChange:0,
+      priceChange:0
+    },
+    {
+      symbol: 'LOW2',
+      quantity: 300,
+      orderDate: '12/01/2022',
+      transactionDate: '12/01/2022',
+      exgPrice: 65,
+      type: 'short',
+      totalInvestment: 0,
+      percentChange:0,
+      priceChange:0
+    },
   ];
 
   constructor() {}
