@@ -11,6 +11,7 @@ import { NavbarComponent } from './common/navbar/navbar.component';
 import { NavbarLinkComponent } from './common/navbar-link/navbar-link.component';
 import { HeaderBarComponent } from './common/header-bar/header-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

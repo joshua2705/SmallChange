@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalStock } from '../models/global-stock';
+import { GlobalstockService } from '../services/globalstock.service';
 
 @Component({
   selector: 'app-trading',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TradingComponent implements OnInit {
 
-  constructor() { }
+  stocks:GlobalStock[] = []
+  constructor(private stockService:GlobalstockService) { }
 
   ngOnInit(): void {
+    this.stocks = this.stockService.getGlobalStocks()
   }
 
 }
