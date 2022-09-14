@@ -9,10 +9,7 @@ import { TradeHistoryComponent } from './trade-history/trade-history.component';
 import { TradingComponent } from './trading/trading.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { NavbarLinkComponent } from './common/navbar-link/navbar-link.component';
-import { LoginPageComponent } from './login/login-page/login-page.component';
-import { UsernameFormControlComponent } from './login/username-form-control/username-form-control.component';
 
-import { PasswordFormControlComponent } from './login/password-form-control/password-form-control.component';
 import { LoginModule } from './login/login.module';
 
 
@@ -25,6 +22,7 @@ import { LoginModule } from './login/login.module';
     TradingComponent,
     NavbarComponent,
     NavbarLinkComponent
+    
    
     
    
