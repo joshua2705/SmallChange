@@ -7,6 +7,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { TradeHistoryComponent } from './trade-history/trade-history.component';
 import { TradingComponent } from './trading/trading.component';
+import { NavbarComponent } from './common/navbar/navbar.component';
+import { NavbarLinkComponent } from './common/navbar-link/navbar-link.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { TradingComponent } from './trading/trading.component';
     RegistrationComponent,
     PortfolioComponent,
     TradeHistoryComponent,
-    TradingComponent
+    TradingComponent,
+    NavbarComponent,
+    NavbarLinkComponent
   ],
   imports: [
     BrowserModule,
