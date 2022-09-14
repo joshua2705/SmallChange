@@ -45,3 +45,33 @@ form {
     width: 50%;
     background-color: #f2f2f2;
 }
+
+nav {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #dbe0cf;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: rgb(20, 19, 19);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+/* Change the link color to #111 (black) on hover */
+
+li a:hover {
+    background-color: #111;
+}
