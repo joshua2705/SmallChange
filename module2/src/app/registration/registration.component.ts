@@ -9,8 +9,8 @@ import Validation from './validation';
 
 @Component({
   selector: 'app-register-form',
-  templateUrl: './register-form.component.html',
-  styleUrls: ['./register-form.component.css'],
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.css'],
 })
 export class RegisterFormComponent implements OnInit {
   checkoutForm = this.formBuilder.group(
