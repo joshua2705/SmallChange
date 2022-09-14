@@ -9,6 +9,7 @@ import { TradeHistoryComponent } from './trade-history/trade-history.component';
 import { TradingComponent } from './trading/trading.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { NavbarLinkComponent } from './common/navbar-link/navbar-link.component';
+import { HeaderBarComponent } from './common/header-bar/header-bar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavbarLinkComponent } from './common/navbar-link/navbar-link.component'
     TradeHistoryComponent,
     TradingComponent,
     NavbarComponent,
-    NavbarLinkComponent
+    NavbarLinkComponent,
+    HeaderBarComponent
   ],
   imports: [
     BrowserModule,
