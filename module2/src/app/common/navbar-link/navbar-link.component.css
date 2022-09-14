@@ -1,0 +1,23 @@
+a {
+    box-sizing: content-box;
+    padding: 0.5rem 1rem;
+    font-family: 'Fidelity Sans', 'Arial','sans-serif' ;
+    font-size: 18px;
+    line-height: 1.5em;
+    text-decoration: none;
+    color:  #356F95;
+  }
+  
+  a:visited {
+    color :#5C0198
+  }
+  
+  a:hover {
+    color: #000
+  }
+  
+  a:focus {
+    border: 1px dotted #cccccc;
+  }
+  
+  

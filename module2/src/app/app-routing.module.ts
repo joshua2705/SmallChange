@@ -6,10 +6,11 @@ import { TradeHistoryComponent } from './trade-history/trade-history.component';
 import { TradingComponent } from './trading/trading.component';
 
 const routes: Routes = [
+  {path:"", component:PortfolioComponent},
   {path:'registration', component: RegistrationComponent },
-  {path: 'portfolio', component: PortfolioComponent},
-  {path: 'activity', component: TradeHistoryComponent},
-  {path: 'trade', component: TradingComponent}
+  {path:'portfolio', component: PortfolioComponent},
+  {path:'activity', component: TradeHistoryComponent},
+  {path:'trade', component: TradingComponent}
 ];
 
 @NgModule({

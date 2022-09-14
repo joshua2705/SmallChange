@@ -1,15 +1,54 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  AbstractControl,
+  FormBuilder,
+  NgForm,
+  Validators,
+} from '@angular/forms';
+import Validation from './validation';
 
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  selector: 'app-register-form',
+  templateUrl: './register-form.component.html',
+  styleUrls: ['./register-form.component.css'],
 })
-export class RegistrationComponent implements OnInit {
+export class RegisterFormComponent implements OnInit {
+  checkoutForm = this.formBuilder.group(
+    {
+      email: '',
+      password: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]],
+      firstName: '',
+      lastName: '',
+      dob: '',
+      phoneNumber: '',
+      riskAppetite: '',
+    },
+    {
+      validators: [Validation.match('password', 'confirmPassword')],
+    }
+  );
 
-  constructor() { }
+  submitted = false;
 
-  ngOnInit(): void {
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit(): void {}
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.checkoutForm.invalid) {
+      return;
+    }
+    console.log(JSON.stringify(this.checkoutForm.value, null, 2));
   }
 
+  onReset(): void {
+    this.submitted = false;
+    this.checkoutForm.reset();
+  }
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.checkoutForm.controls;
+  }
 }
