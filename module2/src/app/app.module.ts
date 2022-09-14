@@ -22,7 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TradingComponent,
     NavbarComponent,
     NavbarLinkComponent,
-    HeaderBarComponent
+    HeaderBarComponent,
+    
   ],
   imports: [
     BrowserModule,
