@@ -1,2 +1,39 @@
-<navbar></navbar>
-<p>trade-history works!</p>
+<navbar> </navbar>
+
+<h2> Activity</h2>
+
+<table> 
+    <thead>
+        <tr>
+            <td>
+                Symbol
+            </td>
+            <td> 
+                Order Date
+            </td>
+            <td>
+                Transaction Date
+            </td>
+            <td> 
+                Type
+            </td>
+            <td>
+                Amount
+            </td>
+            <td>
+                Exchange Price
+            </td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let stock of stocks">
+            <td> {{stock.symbol}} </td>
+            <td> {{stock.orderDate}} </td>
+            <td> {{stock.transactionDate}} </td>
+            <td> {{stock.type}} </td>
+            <td> {{stock.quantity}} </td>
+            <td> {{stock.exgPrice}} </td>
+        </tr>
+    </tbody>
+</table>
