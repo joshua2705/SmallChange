@@ -1,0 +1,26 @@
+.error {
+    font-family: 'Fidelity Sans', Arial, sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
+    display: none;
+    text-align: center;
+    color:  #DC1616;
+  }
+  label {
+    display : block;
+    margin-bottom: 0.25rem;
+    font-weight: bold;
+    font-family: 'Fidelity Sans', Arial, sans-serif;
+  }
+  input{
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    font-size: 18px;
+    line-height: 1.5em;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  

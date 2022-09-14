@@ -1,0 +1,111 @@
+#logo {
+    margin: 0;
+    width: 100%;
+    background-color: #568200;
+    color: #fff;
+    font-family: 'Fidelity Sans', 'Arial','sans-serif' ;
+    font-size: 32px;
+    line-height: 1.5em;
+  }
+  #mainPage {
+    max-width: 62.5em;
+    margin: auto;
+  }
+  
+  #form {
+    margin: 4em 1em;
+  }
+  
+  #header {
+    box-sizing: content-box;
+    padding: 0;
+   
+    font-family: 'Fidelity Sans', 'Ariel', 'sans-serif', 'Arial','sans-serif' ;
+    font-size: 32px;
+    line-height: 1.5em;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+
+  a{
+    color: #024A7A ; 
+    font-family : "Fidelity Sans"
+  }
+  a:visited{
+    color: purple  
+  }
+  
+  a:hover{
+    outline: 1px dotted #ccc;
+  }
+
+  #formBox {
+    margin: 0 auto;
+    padding: 2rem 3rem;
+    max-width: 18rem;
+    border: 1px solid #cccccc;
+  }
+  
+  #formGroup {
+    margin-bottom: 1.5em;
+  }
+  
+  #forgotBox {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  #mainPage {
+    max-width: 62.5em;
+    margin: auto;
+  }
+  
+  #form {
+    margin: 4em 1em;
+  }
+  
+  #footer {
+    border-top: 1px solid #ccc;
+  }
+  .button{
+    border:none;
+    color:white;
+    display: block;
+    background-color:  #568200;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    cursor: pointer;
+    font-family : "Fidelity Sans";
+    line-height: 1.5em;
+  
+  
+  
+  }
+  input{
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    font-size: 18px;
+    line-height: 1.5em;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .default:focus {
+    outline: none !important;
+    border : 2px solid black;
+  }
+  .failure:focus{
+    outline: none !important;
+    border : 2px solid red;
+  }
+  
+  

@@ -1,0 +1,29 @@
+
+<div id="mainPage">
+    
+    <div id ="logo">SmallChange &trade;</div>
+    
+    <div id="form">
+        <div id="header">Login Page</div>
+        <div id="formBox">
+            <div id="formGroup">
+                <div>
+                    <app-username-form-control (onValidUsername) = "storeUsername($event)"></app-username-form-control>
+                </div>
+                <div>
+                    <app-password-form-control (onValidPassword) = "storePassword($event)"></app-password-form-control>
+                </div>
+            </div>
+            <div>
+                <button class="button" (click)="login()">Log in</button>
+            </div>
+            <div id="forgotBox">
+                <a href= "#">Forgot your password?</a> 
+            </div>
+        </div>
+    </div>
+    
+
+
+
+</div>
