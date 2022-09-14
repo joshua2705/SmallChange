@@ -19,3 +19,12 @@ input:focus { outline: none; }
 .table-container{
     padding-top: 35px;
 }
+
+.close{
+    outline: none;
+}
+
+.modal-footer{
+    text-align: center;
+    justify-content: center;
+}
