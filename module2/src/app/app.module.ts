@@ -21,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TradingComponent,
     NavbarComponent,
     NavbarLinkComponent,
-    HeaderBarComponent
+    HeaderBarComponent,
+    
   ],
   imports: [
     BrowserModule,
