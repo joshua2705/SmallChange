@@ -3,34 +3,34 @@
   <div id="overview">
     <div class="values">
       <p>Invested</p>
-      <h3>$1000</h3>
+      <h3>{{invested | currency:'USD':true:'.2-2'}}</h3>
     </div>
     <div class="values">
       <p>Current</p>
-      <h3>$1113</h3>
+      <h3>{{current | currency:'USD':true:'.2-2'}}</h3>
     </div>
     <div class="values">
       <p>Total Returns</p>
-      <h3>$113</h3>
+      <h3>{{totalReturns | currency:'USD':true:'.2-2'}}</h3>
     </div>
   </div>
 
   <div id="info">
-    <div class="stock">
+    <div class="stock" *ngFor="let stock of portfolio">
       <div class="stock_info">
         <div id="quantity">
-          <h5>2 &nbsp;</h5>
+          <h5>{{stock.quantity}} &nbsp;</h5>
           <p>Qty</p>
         </div>
-        <h3>HDFCBANK</h3>
+        <h3>{{stock.symbol}}</h3>
         <div class="invested">
             <p>Invested &nbsp;</p>
-            <h4>400.00</h4>
+            <h4>{{stock.totalInvestment  | number:'.2-2'}}</h4>
         </div>
       </div>
       <div class="returns">
-        <h5>+26.5%</h5>
-        <h4>+55.00</h4>
+        <h5 [style.color] = "stock.percentChange > 0 ? 'green' : 'red'">{{stock.percentChange>0 ? '+': ''}}{{stock.percentChange}}%</h5>
+        <h4 [style.color] = "stock.priceChange > 0 ? 'green' : 'red'">{{stock.priceChange>0 ? '+': ''}}{{stock.priceChange | currency:'USD':true:'.2-2'}}</h4>
       </div>
     </div>
   </div>
