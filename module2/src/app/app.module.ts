@@ -12,8 +12,8 @@ import { NavbarLinkComponent } from './common/navbar-link/navbar-link.component'
 import { HeaderBarComponent } from './common/header-bar/header-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-=======
 //import {MatPaginatorModule} from '@angular/material/paginator';
+
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { LoginModule } from './login/login.module';
@@ -37,8 +37,8 @@ import { LoginModule } from './login/login.module';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgbModule
-    LoginModule
+    NgbModule,
+    LoginModule,
     NgxPaginationModule
   ],
   providers: [],
