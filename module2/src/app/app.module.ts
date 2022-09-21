@@ -12,12 +12,13 @@ import { NavbarLinkComponent } from './common/navbar-link/navbar-link.component'
 import { HeaderBarComponent } from './common/header-bar/header-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-//import {MatPaginatorModule} from '@angular/material/paginator';
-
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { MatTableModule } from '@angular/material/table'
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { LoginModule } from './login/login.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -27,21 +28,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TradeHistoryComponent,
     TradingComponent,
     NavbarComponent,
-
-
     NavbarLinkComponent,
     HeaderBarComponent,
-    
-
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     NgbModule,
     LoginModule,
     NgxPaginationModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
