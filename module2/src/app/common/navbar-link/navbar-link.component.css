@@ -5,19 +5,15 @@ a {
     font-size: 18px;
     line-height: 1.5em;
     text-decoration: none;
-    color:  #356F95;
+    color: #fff;
+    border-right: 0.5px solid white;
   }
-  
-  a:visited {
-    color :#5C0198
-  }
-  
+
   a:hover {
-    color: #000
+    background-color: #000;
   }
-  
-  a:focus {
-    border: 1px dotted #cccccc;
+
+  a:active {
+    background-color: #000;
   }
-  
-  
+
