@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import { SearchPipe } from './pipes/search.pipe';
 import { FooterComponent } from './common/footer/footer.component';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { FooterComponent } from './common/footer/footer.component';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
