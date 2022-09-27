@@ -42,8 +42,13 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   // getPortfolio() {
   //   return  this.portfolio= this.portfolioService.getPortFolio()
   // }
+  
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+  openSearch():void {
+    document.getElementById("searchStocks")?.focus();
   }
 }
 
