@@ -19,6 +19,7 @@ import { LoginModule } from './login/login.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import { SearchPipe } from './pipes/search.pipe';
+import { FooterComponent } from './common/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SearchPipe } from './pipes/search.pipe';
     NavbarLinkComponent,
     HeaderBarComponent,
     SearchPipe,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

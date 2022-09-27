@@ -28,7 +28,6 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   constructor(private portfolioService: PortfolioService) { }
 
   ngOnInit(): void {
-    // this.dataSource = this.portfolioService.getPortFolio();
     this.obs = this.dataSource.connect();
     this.portfolio = this.portfolioService.getPortFolio()
     let i=0;
@@ -39,10 +38,6 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     this.current = this.invested + this.totalReturns
   }
 
-  // getPortfolio() {
-  //   return  this.portfolio= this.portfolioService.getPortFolio()
-  // }
-  
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
