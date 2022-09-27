@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-
+import { registerLocaleData } from '@angular/common'
 @Component({
   selector: 'app-password-form-control',
   templateUrl: './password-form-control.component.html',
@@ -7,29 +7,36 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class PasswordFormControlComponent implements OnInit {
   LabelText:string = 'Password';
-  @Output() onValidPassword = new EventEmitter();
+  @Output() pwdVerify = new EventEmitter<string>();
+  matched: boolean = true;
   constructor() { }
-  public PasswordBox:any;
+  onKey(value: string) {
+   
+    
+    var regex = new RegExp('^[a-zA-Z0-9-_-]{6,24}$');
+
+    if (regex.test(value)) {
+      this.matched = true;
+      this.pwdVerify.emit(value);
+      console.log(value + " matched");
+
+      // errorBox?.style.display= "none"
+
+      // this.passwordBox.className = "default"
+
+      // this.onValidPassword.emit(inputvalue)
+    } else {
+      this.matched = false;
+
+      // errorBox?.style.display= "block"
+
+      // this.passwordBox.className = "failure"
+    }
+  }
   ngOnInit(): void {
 
-    this.PasswordBox = document.getElementById("textbox-id")as HTMLInputElement;
-    this.PasswordBox?.addEventListener('input',(e:any)=>{
-      var errorBox = document.getElementById("errorBox")  
-      var inputvalue = e.target.value
-      var regex = new RegExp("^[a-zA-Z0-9-_\-]{6,24}$")
-
-        if(regex.test(inputvalue)){
-          if(errorBox)
-          errorBox.style.display= "none"
-          this.PasswordBox.className = "default"
-          this.onValidPassword.emit(inputvalue)
-        }
-        else{
-          if(errorBox)
-          errorBox.style.display= "block"
-          this.PasswordBox.className = "failure"
-        }
-    })
+    
+   
   
 }
   }

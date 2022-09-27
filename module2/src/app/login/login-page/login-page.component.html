@@ -4,6 +4,7 @@
     
     
     <div id="form">
+        <br>
         <div id="header">Login Page</div>
         <div id="formBox">
             <div id="formGroup">
@@ -11,7 +12,7 @@
                     <app-username-form-control (onValidUsername) = "storeUsername($event)"></app-username-form-control>
                 </div>
                 <div>
-                    <app-password-form-control (onValidPassword) = "storePassword($event)"></app-password-form-control>
+                    <app-password-form-control (pwdVerify) = "storePassword($event)"></app-password-form-control>
                 </div>
             </div>
             <div>
@@ -19,6 +20,11 @@
             </div>
             <div id="forgotBox">
                 <a href= "#">Forgot your password?</a> 
+
+            </div>
+            <div id="container-register">
+                New Member?
+                <a href="/registration">Register</a>
             </div>
         </div>
     </div>

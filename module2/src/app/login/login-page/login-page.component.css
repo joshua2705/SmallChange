@@ -7,13 +7,18 @@
     font-size: 32px;
     line-height: 1.5em;
   }
-  #mainPage {
-    max-width: 62.5em;
-    margin: auto;
-  }
+ 
   
   #form {
-    margin: 4em 1em;
+    height:100%;
+    background: #eee; 
+
+    position: absolute; 
+    margin: auto; 
+    left: 0; 
+    right: 0; /* this is needed */
+    top: 0; /* this is needed */
+    bottom: 0; /* this is needed */
   }
   
   #header {
@@ -31,9 +36,7 @@
     color: #024A7A ; 
     font-family : "Fidelity Sans"
   }
-  a:visited{
-    color: purple  
-  }
+ 
   
   a:hover{
     outline: 1px dotted #ccc;
@@ -56,7 +59,7 @@
   }
 
   #mainPage {
-    max-width: 62.5em;
+    max-width:100%;
     margin: auto;
   }
   
@@ -106,6 +109,11 @@
   .failure:focus{
     outline: none !important;
     border : 2px solid red;
+  }
+
+  #container-register {
+    margin-top: 1rem;
+    text-align: center;
   }
   
   
