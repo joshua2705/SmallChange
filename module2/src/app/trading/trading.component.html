@@ -6,22 +6,23 @@
 <div class="content">
 
   <div class="container">
-    <mat-card *ngFor="let stock of obs | async ">
-      <div>
-        <mat-card-subtitle>
-          <p class="values">{{ stock.symbol }} &nbsp;</p>
-          <p>Qty</p>
-        </mat-card-subtitle>
-        <mat-card-title>{{ stock.name }}</mat-card-title>
+    <app-table-header></app-table-header>
+    <mat-card class="row" *ngFor="let stock of obs | async "  (click)="open(content,stock)">
+      <div class="col">
+        <mat-card-title><p class="values">{{ stock.symbol }} &nbsp;</p></mat-card-title>
+        <mat-card-subtitle>{{ stock.name }}</mat-card-subtitle>
         <br />
+      </div>
+      <div class="col">
         <mat-card-subtitle>
-          <p>Invested &nbsp;</p>
           <p class="values">
             {{ stock.marketCap | number: ".2-2" }}
-          </p></mat-card-subtitle
-        >
+          </p></mat-card-subtitle>
       </div>
-      <div>
+      <div class="col">
+        <p>{{stock.price}}</p>
+      </div>
+      <div class="col">
         <p [style.color]="stock.gain > 0 ? 'green' : 'red'">
           {{ stock.gain > 0 ? "+" : "" }}{{ stock.gain }}%
         </p>
@@ -35,32 +36,6 @@
     </mat-paginator>
   </div>
 </div>
-
-
-<section class="filter">
-    <input type="text" ng-model="search" 
-    placeholder="Search symbols" />
-</section>
-<section class="table-container" *ngIf="stocks.length">
-    <table class="table table-hover table-responsive" >
-        <thead class="thead-dark">
-            <tr>
-                <th>SYMBOL</th>
-                <th>MARKET CAP</th>
-                <th>PRICE</th>
-                <th>GAIN %</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let stock of stocks " (click)="open(content,stock)" >
-                <td>{{stock.symbol}} <br><sub>{{stock.name}}</sub></td>
-                <td>{{stock.marketCap}}</td>
-                <td>{{stock.price}}</td>
-                <td>{{stock.gain}}</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
 
 <section class="modal-section">
     <ng-template #content let-modal>

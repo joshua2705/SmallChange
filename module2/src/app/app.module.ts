@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import { SearchPipe } from './pipes/search.pipe';
 import { FooterComponent } from './common/footer/footer.component';
+import { TableHeaderComponent } from './trading/table-header/table-header.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FooterComponent } from './common/footer/footer.component';
     HeaderBarComponent,
     SearchPipe,
     FooterComponent,
+    TableHeaderComponent,
   ],
   imports: [
     BrowserModule,
