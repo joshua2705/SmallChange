@@ -42,6 +42,11 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  ngOnChange(){
+    if(this.dataSource.paginator)
+      this.dataSource.paginator.firstPage()
+  }
+
   openSearch():void {
     document.getElementById("searchStocks")?.focus();
   }

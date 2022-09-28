@@ -18,6 +18,9 @@ export class TradingComponent implements OnInit {
   closeResult:string = ""
   fund:number=234000
   thisStock:number=500
+  searchTerm:string=""
+
+  toggleFlag:boolean = true
 
   
   obs!: Observable<GlobalStock[]>;
@@ -46,6 +49,17 @@ export class TradingComponent implements OnInit {
     });
   }
   
+  openSearch():void {
+    if(this.toggleFlag){
+      document.getElementById("searchStocks")?.focus();
+      this.toggleFlag = false
+    }
+    else{
+      document.getElementById("searchStocks")?.blur();
+      this.toggleFlag = true
+    }
+  }
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
