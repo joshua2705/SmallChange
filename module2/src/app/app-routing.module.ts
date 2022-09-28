@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginPageComponent } from './login/login-page/login-page.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { RegisterFormComponent } from './registration/registration.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path:'portfolio', component: PortfolioComponent},
   {path:'activity', component: TradeHistoryComponent},
   {path:'trade', component: TradingComponent},
-  {path:'login', component: LoginPageComponent}
+  {path:'login', component: LoginPageComponent},
+  {path:'home', component: LandingPageComponent}
 ];
 
 @NgModule({

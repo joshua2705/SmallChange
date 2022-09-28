@@ -20,7 +20,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import { SearchPipe } from './pipes/search.pipe';
 import { FooterComponent } from './common/footer/footer.component';
+
 import { MatSortModule } from '@angular/material/sort';
+
+import { TableHeaderComponent } from './trading/table-header/table-header.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +39,8 @@ import { MatSortModule } from '@angular/material/sort';
     HeaderBarComponent,
     SearchPipe,
     FooterComponent,
+    LandingPageComponent,
+    TableHeaderComponent,
   ],
   imports: [
     BrowserModule,
