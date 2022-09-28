@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import { SearchPipe } from './pipes/search.pipe';
 import { FooterComponent } from './common/footer/footer.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FooterComponent } from './common/footer/footer.component';
     HeaderBarComponent,
     SearchPipe,
     FooterComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
