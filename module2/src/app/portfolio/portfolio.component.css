@@ -1,5 +1,5 @@
 .content{
-  width: 80%;
+  width: 90%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -25,11 +25,11 @@
 }
 
 .mat-card-title {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 #price{
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .overview{
@@ -74,17 +74,20 @@
 
 /* Search Bar Styling */
 .searchBox{
-  width: 30%;
+  width: 70%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   height: 5rem;
+  margin: 1rem auto;
+  margin-bottom: 0;
+  /* border: 1px solid red; */
 }
 
 input[type=text]{
   position: relative;
   top:0;
-  left:-50px;
+  /* left:50px; */
   padding: 5px 10px 5px 50px;
   width: 10px;
   color: #525252;
@@ -96,20 +99,26 @@ input[type=text]{
   border-radius: 5px;
   transition: width 0.4s ease;
   outline: none;
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
 }
+
 input:focus{
-  width: 300px;
+  width: 90%;
   box-shadow: 0 0 10px  #51bcfa;
  }
+
 i{
   position: relative;
-  left: -10px;
-  top: 25px;
+  left: 30px;
+  /* top: 20px; */
   color: #fff;
   padding: 0.75rem;
   background-color: #9dd62c;
   border-radius: 50px;
   z-index: 1;
+  cursor: pointer;
 }
+
+
+
 

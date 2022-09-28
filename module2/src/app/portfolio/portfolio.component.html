@@ -2,11 +2,11 @@
 <div class="content">
   <div>
   <div class="searchBox">
-    <i class="material-icons">search</i>
+    <i class="material-icons" (click)="openSearch()">search</i>
     <input
       type="text"
       placeholder="Search"
-      id="listSearch"
+      id="searchStocks"
       [(ngModel)]="searchTerm"
     />
   </div>
