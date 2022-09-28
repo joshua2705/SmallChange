@@ -21,6 +21,7 @@ import {MatCardModule} from '@angular/material/card';
 import { SearchPipe } from './pipes/search.pipe';
 import { FooterComponent } from './common/footer/footer.component';
 import { TableHeaderComponent } from './trading/table-header/table-header.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { TableHeaderComponent } from './trading/table-header/table-header.compon
     HeaderBarComponent,
     SearchPipe,
     FooterComponent,
+    LandingPageComponent,
     TableHeaderComponent,
   ],
   imports: [
