@@ -101,10 +101,12 @@ input[type=text]{
   outline: none;
   /* margin-top: 3rem; */
 }
+
 input:focus{
   width: 90%;
   box-shadow: 0 0 10px  #51bcfa;
  }
+
 i{
   position: relative;
   left: 30px;
@@ -114,5 +116,9 @@ i{
   background-color: #9dd62c;
   border-radius: 50px;
   z-index: 1;
+  cursor: pointer;
 }
+
+
+
 

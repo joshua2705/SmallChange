@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { GlobalStock } from '../models/global-stock';
 import { GlobalstockService } from '../services/globalstock.service';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-trading',
@@ -15,10 +18,26 @@ export class TradingComponent implements OnInit {
   closeResult:string = ""
   fund:number=234000
   thisStock:number=500
+  searchTerm:string=""
+
+  toggleFlag:boolean = true
+
+  
+  obs!: Observable<GlobalStock[]>;
+  displayedColumns: string[] = ['symbol', 'quantity','exg_price','total_investment','percent_change', 'price_change'];
+
+
   constructor(private stockService:GlobalstockService,private modalService: NgbModal) { }
 
+
+  dataSource = new MatTableDataSource<GlobalStock>(this.stockService.getGlobalStocks());
+  @ViewChild(MatPaginator)paginator!: MatPaginator;
+
+  
   ngOnInit(): void {
-    this.stocks = this.stockService.getGlobalStocks()
+    //this.stocks = this.stockService.getGlobalStocks()
+    this.obs = this.dataSource.connect();
+    this.stocks =  this.stockService.getGlobalStocks()
   }
 
   open(content:any, stock:GlobalStock) {
@@ -30,6 +49,17 @@ export class TradingComponent implements OnInit {
     });
   }
   
+  openSearch():void {
+    if(this.toggleFlag){
+      document.getElementById("searchStocks")?.focus();
+      this.toggleFlag = false
+    }
+    else{
+      document.getElementById("searchStocks")?.blur();
+      this.toggleFlag = true
+    }
+  }
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
