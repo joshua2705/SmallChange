@@ -8,6 +8,7 @@
         placeholder="Search"
         id="searchStocks"
         [(ngModel)]="searchTerm"
+        (keyup)="applyFilter($event)"
       />
     </div>
 

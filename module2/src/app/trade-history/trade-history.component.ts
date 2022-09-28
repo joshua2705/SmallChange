@@ -26,6 +26,8 @@ export class TradeHistoryComponent implements OnInit {
   searchTerm: string = '';
   obs!: Observable<Stock[]>;
 
+  toggleFlag:boolean = true;
+
 
   constructor(private historyService: ActivityService, private _liveAnnouncer: LiveAnnouncer) {}
 
@@ -34,8 +36,6 @@ export class TradeHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.stocks = this.historyService.getStockActivity();
     this.obs = this.dataSource.connect();
-
-    
   }
 
   ngAfterViewInit() {
@@ -89,7 +89,19 @@ export class TradeHistoryComponent implements OnInit {
     });
   }
   
+  openSearch():void {
+    if(this.toggleFlag){
+      document.getElementById("listSearch")?.focus();
+      this.toggleFlag = false
+    }
+    else{
+      document.getElementById("listSearch")?.blur();
+      this.toggleFlag = true
+    }
+  }
+
 }
+
 function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

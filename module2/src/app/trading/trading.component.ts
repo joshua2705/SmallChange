@@ -60,6 +60,12 @@ export class TradingComponent implements OnInit {
     }
   }
 
+  applyFilter(filterValue: any) {
+    filterValue = filterValue.target.value.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
