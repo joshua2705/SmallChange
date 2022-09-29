@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -8,9 +9,12 @@ import { Router } from '@angular/router';
 export class LoginPageComponent implements OnInit {
   
 
-  constructor (private router: Router) {}
+  constructor (private router: Router,  private loginService:LoginService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getUsers();
+  }
+  
 
     password:string = ""
     username:string = ""
