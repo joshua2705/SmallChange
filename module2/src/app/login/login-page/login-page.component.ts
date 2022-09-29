@@ -24,7 +24,7 @@ export class LoginPageComponent implements OnInit {
   }
  
   login(): void {
-    
+    console.log(this.username);
     var regex = new RegExp('^[a-zA-Z0-9-_-]{6,24}$');
     var regex1 = new RegExp("^[a-zA-Z0-9-_\-]{3,18}$")
     if((regex1.test(this.username)) ||  (regex.test(this.password))) {
