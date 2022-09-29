@@ -21,6 +21,8 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   totalReturns:number=0;
   displayedColumns: string[] = ['symbol', 'quantity','exg_price','total_investment','percent_change', 'price_change'];
 
+  toggleFlag:boolean = true;
+
   dataSource = new MatTableDataSource<Stock>(this.portfolioService.getPortFolio());
   @ViewChild(MatPaginator)paginator!: MatPaginator;
   searchTerm: string = '';
@@ -47,8 +49,21 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator.firstPage()
   }
 
+  applyFilter(filterValue: any) {
+    filterValue = filterValue.target.value.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
+  
   openSearch():void {
-    document.getElementById("searchStocks")?.focus();
+    if(this.toggleFlag){
+      document.getElementById("searchStocks")?.focus();
+      this.toggleFlag = false
+    }
+    else{
+      document.getElementById("searchStocks")?.blur();
+      this.toggleFlag = true
+    }
   }
 }
 
