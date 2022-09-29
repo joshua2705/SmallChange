@@ -21,7 +21,6 @@ export class TradingComponent implements OnInit {
   searchTerm:string=""
 
   toggleFlag:boolean = true
-
   
   obs!: Observable<GlobalStock[]>;
   displayedColumns: string[] = ['symbol', 'quantity','exg_price','total_investment','percent_change', 'price_change'];
@@ -61,8 +60,7 @@ export class TradingComponent implements OnInit {
   }
 
   applyFilter(filterValue: any) {
-    filterValue = filterValue.target.value.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    console.log("Received", filterValue)
     this.dataSource.filter = filterValue;
   }
 
