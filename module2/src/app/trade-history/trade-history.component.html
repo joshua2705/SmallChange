@@ -1,41 +1,56 @@
 <navbar> </navbar>
 
-<h2> Activity</h2>
+<div class="searchBox">
+    <i class="material-icons">search</i>
+    <input  matInput placeholder="Search" id="listSearch"  (keyup)="applyFilter($event)"  />
+</div>
 
-<table> 
-    <thead>
-        <tr>
-            <td>
-                Symbol
-            </td>
-            <td> 
-                Order Date
-            </td>
-            <td>
-                Transaction Date
-            </td>
-            <td> 
-                Type
-            </td>
-            <td>
-                Amount
-            </td>
-            <td>
-                Exchange Price
-            </td>
-        </tr>
-    </thead>
+<div class="example-container mat-elevation-z8">
 
-    <tbody>
-        <tr *ngFor="let stock of astocks  | paginate: config">
-            <td> {{stock.symbol}} </td>
-            <td> {{stock.orderDate}} </td>
-            <td> {{stock.transactionDate}} </td>
-            <td> {{stock.type}} </td>
-            <td> {{stock.quantity}} </td>
-            <td> {{stock.exgPrice}} </td>
-        </tr>
-    </tbody>
-</table>
+    <mat-table [dataSource]="dataSource" matSort >
+    class="mat-elevation-z8" >
 
-<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+        
+  
+      <!-- ID Column -->
+      <ng-container matColumnDef="symbol">
+        <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number"> Symbol </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.symbol}} </mat-cell>
+      </ng-container>
+  
+      <!-- Progress Column -->
+      <ng-container matColumnDef="orderDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Order Date </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.orderDate}} </mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="transactionDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Transaction Date </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.transactionDate}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.type}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.quantity}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="exgPrice">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Exchange Price </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.exgPrice}} </mat-cell>
+      </ng-container>
+      
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  

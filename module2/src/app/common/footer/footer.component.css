@@ -1,0 +1,154 @@
+.container {
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 0.9rem;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+    margin: 0;
+    margin-top: 1rem;
+}
+
+.bg-footer {
+  background-color: #33383c;
+  font-family: 'Raleway', sans-serif;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer-heading {
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 0;
+  list-style: none;
+}
+
+.footer-link a {
+  color: #acacac;
+  line-height: 35px;
+  font-size: 14px;
+  transition: all 0.2s;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+.footer-link a:hover {
+  color: #9dd62c;
+}
+
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+  margin-top: 0;
+  /* margin-bottom: 1rem; */
+}
+
+.list-inline-item {
+  display: inline-block;
+}
+.list-inline-item:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.contact-info {
+  color: #acacac;
+  font-size: 14px;
+}
+
+.footer-social-icon {
+  font-size: 14px;
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+}
+
+.material-icons {
+  transition: transform 1s ease 0s;
+  background-color: #9dd62c;
+  color: #ffffff;
+  padding: 5px;
+}
+
+/* HOVER */
+
+.material-icons:hover {
+  transform: rotate(360deg);
+}
+
+.footer-alt {
+  color: #acacac;
+  margin-top: -2rem;
+}
+
+.footer-heading {
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer-heading:after {
+  content: '';
+  width: 25px;
+  border-bottom: 1px solid #FFF;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  display: block;
+  border-bottom: 5px solid #9dd62c;
+}
+
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+    width: 100%;
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}

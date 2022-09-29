@@ -9,17 +9,14 @@
   }
  
   
-  #form {
-    height:100%;
-    background: #eee; 
-
-    position: absolute; 
-    margin: auto; 
-    left: 0; 
-    right: 0; /* this is needed */
-    top: 0; /* this is needed */
-    bottom: 0; /* this is needed */
-  }
+  form {
+    display: inline-block;
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: left;
+    width: 50%;
+    background-color: #f2f2f2;
+}
   
   #header {
     box-sizing: content-box;

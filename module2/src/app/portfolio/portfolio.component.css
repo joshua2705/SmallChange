@@ -1,97 +1,124 @@
-section {
-  margin-top: 2rem;
-}
-
-#overview{
-  display: flex;
-  width: 40%;
-  max-width: 75%;
-  margin: 0 auto;
-  border: 1px solid #ccc;
-  justify-content: space-around;
-  height: 5rem;
-  padding: 1rem 0rem;
-  align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: #F5F5F5;
-  position: relative;
-  z-index: 2;
-  margin-bottom: -3rem;
-}
-
-.values {
+.content{
+  width: 90%;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  text-align: center;
-  max-height: 3rem;
 }
 
-.values p, .values h3 {
-  margin: 0;
-}
-
-.values p{
-  color: #8F8F8F;
-}
-
-#info {
-  display: flex;
-  flex-direction: column;
-  width: 65%;
-  max-width: 65%;
-  margin: 0 auto;
+.container{
+  width: 70%;
+  --headerColor: #91CB3E;
+  --font-size: 18px;
   border: 1px solid #ccc;
   border-top: 0.5px solid rgb(236, 236, 236);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 0 2rem;
   padding-top: 3rem;
   position: relative;
   z-index: 0;
 }
 
-.stock {
+.mat-card{
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #ccc;
-  padding: 0.5rem 0;
-  z-index: 0;
+  padding: 0 2rem;
+  margin-bottom: 1rem;
 }
 
-.stock_info {
+.mat-card-title {
+  font-size: 14px;
+}
+
+#price{
+  font-size: 14px;
+}
+
+.overview{
+  max-width: 40%;
+  margin: auto;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  height: 5rem;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #F5F5F5;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -2rem;
+}
+
+#card-overview{
+  height: 5rem;
+  align-items: center;
+  max-width: 100%;
+}
+
+.values{
+  color: black;
+}
+
+.mat-card-subtitle{
+  display: flex;
+}
+
+.acc_overview{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-#quantity {
-  display: flex;
-  align-items: baseline;
-  padding-bottom: 0.25rem;
-}
-#quantity h5, #quantity p {
+.mat-card div .mat-card-subtitle, .mat-card div .mat-card-title{
   margin: 0;
 }
 
-.invested {
+
+/* Search Bar Styling */
+.searchBox{
+  width: 70%;
   display: flex;
   justify-content: flex-start;
-  align-items: baseline;
-  padding-top: 0.75rem;
+  align-items: center;
+  height: 5rem;
+  margin: 1rem auto;
+  margin-bottom: 0;
+  /* border: 1px solid red; */
 }
 
-.invested p, .invested h4 {
-  margin: 0;
+input[type=text]{
+  position: relative;
+  top:0;
+  /* left:50px; */
+  padding: 5px 10px 5px 50px;
+  width: 10px;
+  color: #525252;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border:none;
+  border-radius: 5px;
+  transition: width 0.4s ease;
+  outline: none;
+  /* margin-top: 3rem; */
 }
 
-.returns {
-  color: #11D33C;
+input:focus{
+  width: 90%;
+  box-shadow: 0 0 10px  #51bcfa;
+ }
+
+i{
+  position: relative;
+  left: 30px;
+  /* top: 20px; */
+  color: #fff;
+  padding: 0.75rem;
+  background-color: #9dd62c;
+  border-radius: 50px;
+  z-index: 1;
+  cursor: pointer;
 }
 
-#info p{
-  color: #8F8F8F;
-}
 
-.stock_info h3, .stock_info #quantity, .stock_info .invested {
-  margin: 0;
-}
+
+
