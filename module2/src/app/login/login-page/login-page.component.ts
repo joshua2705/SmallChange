@@ -22,17 +22,19 @@ export class LoginPageComponent implements OnInit {
   storeUsername(e:any):void{
     this.username = e
   }
-
+ 
   login(): void {
-
-    if(this.username === undefined || this.password === undefined) {
-      console.log("Please Enter Valid Inputs") 
-    } 
-    else{
+    
+    var regex = new RegExp('^[a-zA-Z0-9-_-]{6,24}$');
+    var regex1 = new RegExp("^[a-zA-Z0-9-_\-]{3,18}$")
+    if((regex1.test(this.username)) ||  (regex.test(this.password))) {
       this.router.navigateByUrl('/portfolio');
       console.log({Username:this.username, password:this.password, EncodedUsername: window.btoa(this.username), EncodedPassword : window.btoa(this.password) }) 
       this.username ="";
       this.password ="";
+    } 
+    else{
+      alert("Invalid Login");
     } 
   }
   
