@@ -39,6 +39,10 @@ export class TradingComponent implements OnInit {
     this.stocks =  this.stockService.getGlobalStocks()
   }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+  
   open(content:any, stock:GlobalStock) {
     this.selectedStock = stock
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
