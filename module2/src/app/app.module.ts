@@ -25,6 +25,7 @@ import { MatSortModule } from '@angular/material/sort';
 
 import { TableHeaderComponent } from './trading/table-header/table-header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SearchBarComponent } from './common/search-bar/search-bar.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     FooterComponent,
     LandingPageComponent,
     TableHeaderComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,

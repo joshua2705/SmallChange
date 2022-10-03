@@ -1,16 +1,13 @@
 <navbar> </navbar>
 
 <div class="searchBox">
-    <i class="material-icons">search</i>
-    <input  matInput placeholder="Search" id="listSearch"  (keyup)="applyFilter($event)"  />
+    <i class="material-icons"  (click)="openSearch()">search</i>
+    <input type="text" matInput placeholder="Search" id="listSearch" (keyup)="applyFilter($event)"  />
 </div>
 
 <div class="example-container mat-elevation-z8">
 
-    <mat-table [dataSource]="dataSource" matSort >
-    class="mat-elevation-z8" >
-
-        
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort >
   
       <!-- ID Column -->
       <ng-container matColumnDef="symbol">

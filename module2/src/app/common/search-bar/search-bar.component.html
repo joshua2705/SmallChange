@@ -1,0 +1,10 @@
+<div class="searchBox" >
+    <i class="material-icons" (click)="openSearch()">search</i>
+    <input
+      type="text"
+      placeholder="Search"
+      id="searchBox"
+      (keyup)="sendFilterText($event)"
+    />
+</div>
+
