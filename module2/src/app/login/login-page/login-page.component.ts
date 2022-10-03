@@ -40,7 +40,11 @@ export class LoginPageComponent implements OnInit {
         this.authenticated = true;
       }
       else{
+
         this.router.navigateByUrl('login')
+
+       
+      
        
       }
 
