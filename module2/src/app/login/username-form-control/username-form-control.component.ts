@@ -9,10 +9,10 @@ import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
 export class UsernameFormControlComponent implements OnInit {
   
   LabelText:string = 'Username';
-  @Output() onValidUsername = new EventEmitter();
+  @Output() usrVerify = new EventEmitter<string>();
 
   constructor() { }
-
+  matched: boolean = true;
   
   
   public usernameBox:any;
@@ -29,7 +29,7 @@ export class UsernameFormControlComponent implements OnInit {
           if(errorBox)
           errorBox.style.display= "none"
           this.usernameBox.className = "default"
-          this.onValidUsername.emit(inputvalue)
+          this.usrVerify.emit(inputvalue)
         }
         else{
           if(errorBox)
