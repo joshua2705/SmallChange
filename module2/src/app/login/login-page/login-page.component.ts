@@ -40,7 +40,7 @@ export class LoginPageComponent implements OnInit {
         this.authenticated = true;
       }
       else{
-        alert("Invalid login")
+       
        this.router.navigateByUrl('login')
        
       }
