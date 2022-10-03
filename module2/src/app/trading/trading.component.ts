@@ -21,7 +21,6 @@ export class TradingComponent implements OnInit {
   searchTerm:string=""
 
   toggleFlag:boolean = true
-
   
   obs!: Observable<GlobalStock[]>;
   displayedColumns: string[] = ['symbol', 'quantity','exg_price','total_investment','percent_change', 'price_change'];
@@ -58,6 +57,11 @@ export class TradingComponent implements OnInit {
       document.getElementById("searchStocks")?.blur();
       this.toggleFlag = true
     }
+  }
+
+  applyFilter(filterValue: any) {
+    console.log("Received", filterValue)
+    this.dataSource.filter = filterValue;
   }
 
   private getDismissReason(reason: any): string {

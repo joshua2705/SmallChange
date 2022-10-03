@@ -1,15 +1,7 @@
 <navbar></navbar>
 <div class="content">
   
-    <div class="searchBox">
-      <i class="material-icons" (click)="openSearch()">search</i>
-      <input
-        type="text"
-        placeholder="Search"
-        id="searchStocks"
-        [(ngModel)]="searchTerm"
-      />
-    </div>
+  <app-search-bar (searchInputEvent)="applyFilter($event)"></app-search-bar>
 
   <div class="container">
     <app-table-header></app-table-header>

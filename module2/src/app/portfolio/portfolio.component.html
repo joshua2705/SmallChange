@@ -8,6 +8,7 @@
       placeholder="Search"
       id="searchStocks"
       [(ngModel)]="searchTerm"
+      (keyup)="applyFilter($event)"
     />
   </div>
 
@@ -37,7 +38,7 @@
 </div>
 
   <div class="container">
-    <mat-card *ngFor="let stock of obs | async | search: searchTerm">
+    <mat-card *ngFor="let stock of obs | async ">
       <div>
         <mat-card-subtitle>
           <p class="values">{{ stock.quantity }} &nbsp;</p>
