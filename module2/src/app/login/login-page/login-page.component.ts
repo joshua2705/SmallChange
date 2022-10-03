@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { LoginService } from 'src/app/services/login.service';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -8,35 +10,44 @@ import { Router } from '@angular/router';
 export class LoginPageComponent implements OnInit {
   
 
-  constructor (private router: Router) {}
+  constructor (private router: Router,  private loginService:LoginService) {}
 
-  ngOnInit(): void {}
-
-    password:string = ""
-    username:string = ""
-
-  storePassword(e:any):void{
-    this.password = e
-  }
-
-  storeUsername(e:any):void{
-    this.username = e
-  }
- 
-  login(): void {
-    console.log(this.username);
-    var regex = new RegExp('^[a-zA-Z0-9-_-]{6,24}$');
-    var regex1 = new RegExp("^[a-zA-Z0-9-_\-]{3,18}$")
-    if((regex1.test(this.username)) ||  (regex.test(this.password))) {
-      this.router.navigateByUrl('/portfolio');
-      console.log({Username:this.username, password:this.password, EncodedUsername: window.btoa(this.username), EncodedPassword : window.btoa(this.password) }) 
-      this.username ="";
-      this.password ="";
-    } 
-    else{
-      alert("Invalid Login");
-    } 
+  ngOnInit(): void {
+    this.getUsers();
   }
   
+
+  username: string = ""
+  password: string = ""
+  users: User[] = []
+  authenticated: boolean = false;
+
+  displayUserName(value: string){
+    this.username = value;
+  }
+
+  displayPassword(value: string){
+    this.password = value; 
+  }
+
+  getUsers(){
+    this.loginService.getUsers().subscribe(incomingData => this.users=incomingData)
+  }
+
+  public authenticate(): void {  
+    this.users.forEach(creds => {
+      if(creds.password === this.password && creds.username === this.username){
+        this.authenticated = true;
+      }
+      else{
+        this.router.navigateByUrl('login')
+      }
+
+
+    });
+    if(this.authenticated==true){
+      this.router.navigateByUrl('portfolio');
+    }
+  }
 
 }
