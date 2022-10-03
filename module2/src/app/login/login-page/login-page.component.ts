@@ -40,8 +40,11 @@ export class LoginPageComponent implements OnInit {
         this.authenticated = true;
       }
       else{
+
+        this.router.navigateByUrl('login')
+
        
-       this.router.navigateByUrl('login')
+      
        
       }
 
@@ -49,6 +52,9 @@ export class LoginPageComponent implements OnInit {
     });
     if(this.authenticated==true){
       this.router.navigateByUrl('portfolio');
+    }
+    else{
+      alert("Invalid login")
     }
   }
 
