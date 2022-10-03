@@ -1,6 +1,6 @@
 #logo {
     margin: 0;
-    width: 100%;
+    width: 80%;
     background-color: #568200;
     color: #fff;
     font-family: 'Fidelity Sans', 'Arial', 'sans-serif';
@@ -13,4 +13,31 @@
     background-color: #568200;
     padding: 0.5rem 1rem;
     max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #entryBtn{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #login{
+    background-color: #568200;
+    color: #fff;
+    font-family: 'Fidelity Sans', 'Arial', 'sans-serif';
+    font-size: 20px;
+    margin-right: 10px;
+    border: 3px solid white;
+    border-radius: 15px;
+    padding: 5px 7px 5px 7px;
+  }
+
+  #register{
+    background-color: #568200;
+    color: #fff;
+    font-family: 'Fidelity Sans', 'Arial', 'sans-serif';
+    font-size: 19px;
   }
