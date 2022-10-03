@@ -41,12 +41,16 @@ export class LoginPageComponent implements OnInit {
       }
       else{
         this.router.navigateByUrl('login')
+       
       }
 
 
     });
     if(this.authenticated==true){
       this.router.navigateByUrl('portfolio');
+    }
+    else{
+      alert("Invalid login")
     }
   }
 
