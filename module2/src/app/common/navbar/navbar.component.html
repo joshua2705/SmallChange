@@ -1,10 +1,31 @@
-<nav class = "topNav" id="navbar">
-    <button class="icon" (click)="ngOnInit()" id="navMenu">Menu</button>
-<ul>
-    <li><app-navbar-link NavbarText="Portfolio" NavbarLink="/portfolio"></app-navbar-link></li>
-    <li><app-navbar-link NavbarText="Activity" NavbarLink="/activity"></app-navbar-link></li>
-    <li><app-navbar-link NavbarText="Trade" NavbarLink="/trade"></app-navbar-link></li>
-    <li><app-navbar-link NavbarText="Preferences" NavbarLink="/preference"></app-navbar-link></li>
-</ul>
-<i class="material-icons">account_circle</i>
+<nav class="topNav" id="navbar">
+  <button class="icon" (click)="ngOnInit()" id="navMenu">Menu</button>
+  <ul>
+    <li>
+      <app-navbar-link
+        NavbarText="Portfolio"
+        NavbarLink="/portfolio"
+      ></app-navbar-link>
+    </li>
+    <li>
+      <app-navbar-link
+        NavbarText="Activity"
+        NavbarLink="/activity"
+      ></app-navbar-link>
+    </li>
+    <li>
+      <app-navbar-link NavbarText="Trade" NavbarLink="/trade"></app-navbar-link>
+    </li>
+    <li>
+      <app-navbar-link
+        NavbarText="Preferences"
+        NavbarLink="/preference"
+      ></app-navbar-link>
+    </li>
+  </ul>
+  <i class="material-icons" (click)="dropdown()">account_circle</i>
 </nav>
+<ul id="dropdown" class="dropdown" (click)="dropdown()">
+  <li (click)="openDialog()">Wallet</li>
+  <li>Logout</li>
+</ul>

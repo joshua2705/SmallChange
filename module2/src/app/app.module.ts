@@ -34,6 +34,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatDialogModule} from '@angular/material/dialog';
+import { WalletComponent } from './wallet/wallet.component';
 
 
 @NgModule({
@@ -51,7 +54,10 @@ import {MatSliderModule} from '@angular/material/slider';
     LandingPageComponent,
     TableHeaderComponent,
     SearchBarComponent,
+    WalletComponent,
+
   ],
+  entryComponents:[WalletComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -73,7 +79,9 @@ import {MatSliderModule} from '@angular/material/slider';
     MatCardModule,
     MatGridListModule,
     MatRadioModule,
-    MatSliderModule
+    MatSliderModule,
+    MatTabsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
