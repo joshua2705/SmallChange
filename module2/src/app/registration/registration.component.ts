@@ -13,42 +13,44 @@ import Validation from './validation';
   styleUrls: ['./registration.component.css'],
 })
 export class RegisterFormComponent implements OnInit {
-  checkoutForm = this.formBuilder.group(
-    {
-      email: '',
-      password: ['', [Validators.required]],
-      confirmPassword: ['', [Validators.required]],
-      firstName: '',
-      lastName: '',
-      dob: '',
-      phoneNumber: '',
-      riskAppetite: '',
-    },
-    {
-      validators: [Validation.match('password', 'confirmPassword')],
-    }
-  );
+  // checkoutForm = this.formBuilder.group(
+  //   {
+  //     email: '',
+  //     password: ['', [Validators.required]],
+  //     confirmPassword: ['', [Validators.required]],
+  //     firstName: '',
+  //     lastName: '',
+  //     dob: '',
+  //     phoneNumber: '',
+  //     riskAppetite: '',
+  //   },
+  //   {
+  //     validators: [Validation.match('password', 'confirmPassword')],
+  //   }
+  // );
 
-  submitted = false;
+  // submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  // constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {}
 
-  onSubmit() {
-    this.submitted = true;
-    if (this.checkoutForm.invalid) {
-      return;
-    }
-    console.log(JSON.stringify(this.checkoutForm.value, null, 2));
-  }
+  hide = true;
 
-  onReset(): void {
-    this.submitted = false;
-    this.checkoutForm.reset();
-  }
+  // onSubmit() {
+  //   this.submitted = true;
+  //   if (this.checkoutForm.invalid) {
+  //     return;
+  //   }
+  //   console.log(JSON.stringify(this.checkoutForm.value, null, 2));
+  // }
 
-  get f(): { [key: string]: AbstractControl } {
-    return this.checkoutForm.controls;
-  }
+  // onReset(): void {
+  //   this.submitted = false;
+  //   this.checkoutForm.reset();
+  // }
+
+  // get f(): { [key: string]: AbstractControl } {
+  //   return this.checkoutForm.controls;
+  // }
 }

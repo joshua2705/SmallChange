@@ -1,9 +1,10 @@
-.main{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
 }
+
 h3 {
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -51,14 +52,42 @@ form {
     background-color: #f2f2f2;
 }
 
-.login{
-  width: 100%;
-  display: flex;
-  justify-content: right;
-  margin: 0;
-  padding: 0;
+.login {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    margin: 0;
+    padding: 0;
 }
 
 .login button {
-  width: 10%;
+    width: 10%;
+}
+
+.example-radio-button {
+    margin-left: 7px;
+}
+
+mat-grid-tile {
+    background: #fafafa;
+}
+
+.width-50 {
+    width: 49%;
+}
+
+.ml-1 {
+    margin-left: 1%;
+}
+
+.ml-2 {
+    margin-left: 2%;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.width-25 {
+    width: 25%;
 }

@@ -26,6 +26,16 @@ import { MatSortModule } from '@angular/material/sort';
 import { TableHeaderComponent } from './trading/table-header/table-header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SearchBarComponent } from './common/search-bar/search-bar.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatRadioModule } from '@angular/material/radio';
+
+
+
 
 
 @NgModule({
@@ -57,6 +67,14 @@ import { SearchBarComponent } from './common/search-bar/search-bar.component';
     MatPaginatorModule,
     MatCardModule,
     MatSortModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatSelectModule,
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
