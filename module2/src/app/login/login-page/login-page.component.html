@@ -9,14 +9,14 @@
         <div id="formBox">
             <div id="formGroup">
                 <div>
-                    <app-username-form-control (onValidUsername) = "storeUsername($event)"></app-username-form-control>
+                    <app-username-form-control  (usrVerify)="displayUserName($event)"></app-username-form-control>
                 </div>
                 <div>
-                    <app-password-form-control (pwdVerify) = "storePassword($event)"></app-password-form-control>
+                    <app-password-form-control (pwdVerify)="displayPassword($event)"></app-password-form-control>
                 </div>
             </div>
             <div>
-                <button class="button" (click)="login()">Log in</button>
+                <button class="button"  (click)="authenticate()">Log in</button>
             </div>
             <div id="forgotBox">
                 <a href= "#">Forgot your password?</a> 
