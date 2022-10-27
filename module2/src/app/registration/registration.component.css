@@ -1,13 +1,18 @@
+.main{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+}
 h3 {
     text-align: center;
-    text-decoration: underline;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
 }
 
 div {
     border-radius: 5px;
     padding: 20px;
-    margin-left: 15%;
-    margin-right: 15%;
 }
 
 input,
@@ -46,32 +51,14 @@ form {
     background-color: #f2f2f2;
 }
 
-nav {
-    max-width: 100%;
-    margin: 0 auto;
+.login{
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  margin: 0;
+  padding: 0;
 }
 
-ul {
-    list-style-type: none;
-    overflow: hidden;
-    background-color: #dbe0cf;
-}
-
-li {
-    float: right;
-}
-
-li a {
-    display: block;
-    color: rgb(20, 19, 19);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-
-/* Change the link color to #111 (black) on hover */
-
-li a:hover {
-    background-color: #111;
+.login button {
+  width: 10%;
 }
