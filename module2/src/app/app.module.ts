@@ -33,9 +33,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
-
-
-
+import {MatSliderModule} from '@angular/material/slider';
 
 
 @NgModule({
@@ -75,6 +73,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MatCardModule,
     MatGridListModule,
     MatRadioModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
