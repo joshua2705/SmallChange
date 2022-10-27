@@ -1,82 +1,103 @@
 <div>
-    <h3>Register</h3>
+  <h3>Register</h3>
 </div>
 
-<mat-grid-list cols="1" rowHeight="500px">
-    <mat-grid-tile>
-        <div class="example-container">
-            <mat-form-field appearance="fill" class="width-50">
-                <mat-label>First Name</mat-label>
-                <input matInput />
-            </mat-form-field>
+<mat-grid-list cols="1" rowHeight="600px">
+  <mat-grid-tile>
+    <div class="example-container">
+      <mat-form-field appearance="fill" class="width-50">
+        <mat-label>First Name</mat-label>
+        <input matInput />
+      </mat-form-field>
 
-            <mat-form-field appearance="fill" class="width-50 ml-2">
-                <mat-label>Surname</mat-label>
-                <input matInput />
-            </mat-form-field>
-            <br />
-            <mat-form-field appearance="fill" class="width-100">
-                <mat-label>Phone Number</mat-label>
-                <input matInput placeholder="Ex. +91-XXXXXXXXXX" />
-            </mat-form-field>
-            <br />
-            <mat-form-field appearance="fill" class="width-100">
-                <mat-label>Email address</mat-label>
-                <input matInput placeholder="Ex. pat@example.com" />
-            </mat-form-field>
-            <br />
-            <mat-form-field appearance="fill" class="width-100">
-                <mat-label>Enter Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" />
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-form-field appearance="fill" class="width-50 ml-2">
+        <mat-label>Surname</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill" class="width-50">
+        <mat-label>Phone Number</mat-label>
+        <input matInput placeholder="Ex. +91-XXXXXXXXXX" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width-50 ml-2">
+        <mat-label>Email address</mat-label>
+        <input matInput placeholder="Ex. pat@example.com" />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill" class="width-100">
+        <mat-label>Enter Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" />
+        <button
+          style="border: none"
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
           <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
         </button>
-            </mat-form-field>
-            <br />
-            <mat-form-field appearance="fill" class="width-100">
-                <mat-label>Confirm Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" />
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="fill" class="width-100">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" />
+        <button
+          style="border: none"
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
           <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
         </button>
-            </mat-form-field>
-            <br />
-            <label id="example-radio-group-label">Gender: </label>
-            <br /><br />
-            <mat-radio-group aria-label="Select an option">
-                <mat-radio-button value="1">Male</mat-radio-button>
-                <mat-radio-button class="example-radio-button" value="2">Female</mat-radio-button>
-                <mat-radio-button class="example-radio-button" value="3">Custom</mat-radio-button>
-            </mat-radio-group>
-            <br /><br />
-            <label id="example-radio-group-label">Date of birth: </label>
-            <br /><br />
-            <mat-form-field appearance="fill" class="width-25">
-                <mat-label>Day</mat-label>
-                <mat-select>
-                    <mat-option [value]="6"> 26 </mat-option>
-                </mat-select>
-            </mat-form-field>
+      </mat-form-field>
+      <br />
+      <label id="example-radio-group-label">Gender: </label>
+      <br /><br />
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Male</mat-radio-button>
+        <mat-radio-button class="example-radio-button" value="2"
+          >Female</mat-radio-button
+        >
+        <mat-radio-button class="example-radio-button" value="3"
+          >Custom</mat-radio-button
+        >
+      </mat-radio-group>
+      <br /><br />
+      <label id="example-radio-group-label">Date of birth: </label>
+      <br /><br />
+      <mat-form-field appearance="fill" class="width-25">
+        <mat-label>Day</mat-label>
+        <mat-select>
+          <mat-option [value]="6"> 26 </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-            <mat-form-field appearance="fill" class="width-25 ml-1">
-                <mat-label>Month</mat-label>
-                <mat-select>
-                    <mat-option [value]="6"> 26 </mat-option>
-                </mat-select>
-            </mat-form-field>
+      <mat-form-field appearance="fill" class="width-25 ml-1">
+        <mat-label>Month</mat-label>
+        <mat-select>
+          <mat-option [value]="6"> 26 </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-            <mat-form-field appearance="fill" class="width-25 ml-1">
-                <mat-label>Year</mat-label>
-                <mat-select>
-                    <mat-option [value]="6"> 26 </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <br />
-            <mat-form-field appearance="fill" class="width-100">
+      <mat-form-field appearance="fill" class="width-25 ml-1">
+        <mat-label>Year</mat-label>
+        <mat-select>
+          <mat-option [value]="6"> 26 </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+      <!-- <mat-form-field appearance="fill" class="width-100">
                 <mat-label>Risk Appetite</mat-label>
                 <input matInput placeholder="Enter a number between 1-5" />
-            </mat-form-field>
-            <br />
-        </div>
-    </mat-grid-tile>
+            </mat-form-field> -->
+      <mat-label>Risk Appetite</mat-label>
+      <mat-slider color="primary" thumbLabel tickInterval="1" min="1" max="5" step="1" value="1"></mat-slider>
+
+      <br />
+    </div>
+  </mat-grid-tile>
 </mat-grid-list>
