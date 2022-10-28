@@ -37,6 +37,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
 import { WalletComponent } from './wallet/wallet.component';
+import{ MatDatepickerModule } from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -55,7 +56,6 @@ import { WalletComponent } from './wallet/wallet.component';
     TableHeaderComponent,
     SearchBarComponent,
     WalletComponent,
-
   ],
   entryComponents:[WalletComponent],
   imports: [
@@ -81,7 +81,8 @@ import { WalletComponent } from './wallet/wallet.component';
     MatRadioModule,
     MatSliderModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

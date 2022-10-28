@@ -2,139 +2,226 @@
     <h3>Register</h3>
 </div>
 
-<mat-grid-list cols="1" rowHeight="600px">
+<form [formGroup]="registerForm" autocomplete="off" (ngSubmit)="createUser(registerForm.value)" fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <mat-card-content>
+        <mat-grid-list cols="1" rowHeight="600px">
+            <mat-grid-tile>
+                <div class="example-container">
+                    <mat-form-field appearance="fill" class="width-50">
+                        <mat-label>First Name</mat-label>
+                        <input matInput type="text" formControlName="firstName" />
+                        <mat-error *ngIf="hasError('firstName', 'required')">FirstName is required</mat-error>
+                        <mat-error *ngIf="hasError('firstName', 'maxlength')">You have more than 24 characters</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="width-50 ml-2">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput type="text" formControlName="lastName" />
+                        <mat-error *ngIf="hasError('lastName', 'required')">Last Name is required</mat-error>
+                        <mat-error *ngIf="hasError('lastName', 'maxlength')">You have more than 24 characters</mat-error>
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field appearance="fill" class="width-50">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput placeholder="Ex. +91-XXXXXXXXXX" formControlName="phoneNumber" />
+                        <mat-error *ngIf="hasError('phoneNumber', 'required')">Phone Number is required</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="width-50 ml-2">
+                        <mat-label>Email address</mat-label>
+                        <input matInput placeholder="Ex. pat@example.com" type="text" formControlName="email" />
+                        <mat-error *ngIf="hasError('email', 'required')">e-mail is required</mat-error>
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field appearance="fill" class="width-100">
+                        <mat-label>Enter Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+                        <button style="border: none" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{
+                hide ? "visibility_off " : "visibility "
+              }}</mat-icon>
+            </button>
+                        <mat-error *ngIf="hasError('password', 'required')">Password is required</mat-error>
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field appearance="fill" class="width-100">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPassword" />
+                        <button style="border: none" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{
+                hide ? "visibility_off " : "visibility "
+              }}</mat-icon>
+            </button>
+                        <mat-error *ngIf="hasError('confirmPassword', 'required')">Please Confirm Password</mat-error>
+                    </mat-form-field>
+                    <br />
+                    <label id="example-radio-group-label ">Gender: </label>
+                    <br /><br />
+                    <mat-radio-group aria-label="Select an option" formControlName="gender">
+                        <mat-radio-button value="Male">Male</mat-radio-button>
+                        <mat-radio-button class="example-radio-button" value="Female">Female</mat-radio-button>
+                        <mat-radio-button class="example-radio-button" value="Other">Other</mat-radio-button>
+                    </mat-radio-group>
+                    <br /><br />
+                    <label id="example-radio-group-label ">Date of birth: </label>
+                    <br /><br />
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker" placeholder="Choose a date of birth" formControlName="dob" id="dateOfBirth" readonly (click)="picker.open()" />
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <br />
+                    <!-- <mat-form-field appearance="fill " class="width-100 ">
+                    <mat-label>Risk Appetite</mat-label>
+                    <input matInput placeholder="Enter a number between 1-5 " />
+                </mat-form-field> -->
+                    <mat-label>Risk Appetite</mat-label>
+                    <mat-slider color="primary" thumbLabel tickInterval="1" min="1" max="5" step="1" value="1" formControlName="risk"></mat-slider>
+                    <br />
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+    <mat-card-actions>
+        <button id="Register" mat-raised-button color="primary" [disabled]="!registerForm.valid">
+      Register
+    </button>
+    </mat-card-actions>
+</form>
+
+<!-- <mat-grid-list cols=" 1 " rowHeight="600px ">
     <mat-grid-tile>
-        <div class="example-container">
-            <mat-form-field appearance="fill" class="width-50">
+        <div class="example-container ">
+            <mat-form-field appearance="fill " class="width-50 ">
                 <mat-label>First Name</mat-label>
                 <input matInput />
             </mat-form-field>
 
-            <mat-form-field appearance="fill" class="width-50 ml-2">
+            <mat-form-field appearance="fill " class="width-50 ml-2 ">
                 <mat-label>Surname</mat-label>
                 <input matInput />
             </mat-form-field>
             <br />
-            <mat-form-field appearance="fill" class="width-50">
+            <mat-form-field appearance="fill " class="width-50 ">
                 <mat-label>Phone Number</mat-label>
-                <input matInput placeholder="Ex. +91-XXXXXXXXXX" />
+                <input matInput placeholder="Ex. +91-XXXXXXXXXX " />
             </mat-form-field>
 
-            <mat-form-field appearance="fill" class="width-50 ml-2">
+            <mat-form-field appearance="fill " class="width-50 ml-2 ">
                 <mat-label>Email address</mat-label>
-                <input matInput placeholder="Ex. pat@example.com" />
+                <input matInput placeholder="Ex. pat@example.com " />
             </mat-form-field>
             <br />
-            <mat-form-field appearance="fill" class="width-100">
+            <mat-form-field appearance="fill " class="width-100 ">
                 <mat-label>Enter Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" />
-                <button style="border: none" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                <input matInput [type]="hide ? 'password' : 'text' " />
+                <button style="border: none " mat-icon-button matSuffix (click)="hide=! hide " [attr.aria-label]=" 'Hide password' " [attr.aria-pressed]="hide ">
+          <mat-icon>{{ hide ? "visibility_off " : "visibility " }}</mat-icon>
         </button>
             </mat-form-field>
             <br />
-            <mat-form-field appearance="fill" class="width-100">
+            <mat-form-field appearance="fill " class="width-100 ">
                 <mat-label>Confirm Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" />
-                <button style="border: none" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                <input matInput [type]="hide ? 'password' : 'text' " />
+                <button style="border: none " mat-icon-button matSuffix (click)="hide=! hide " [attr.aria-label]=" 'Hide password' " [attr.aria-pressed]="hide ">
+          <mat-icon>{{ hide ? "visibility_off " : "visibility " }}</mat-icon>
         </button>
             </mat-form-field>
             <br />
-            <label id="example-radio-group-label">Gender: </label>
+            <label id="example-radio-group-label ">Gender: </label>
             <br /><br />
-            <mat-radio-group aria-label="Select an option">
-                <mat-radio-button value="1">Male</mat-radio-button>
-                <mat-radio-button class="example-radio-button" value="2">Female</mat-radio-button>
-                <mat-radio-button class="example-radio-button" value="3">Custom</mat-radio-button>
+            <mat-radio-group aria-label="Select an option ">
+                <mat-radio-button value="1 ">Male</mat-radio-button>
+                <mat-radio-button class="example-radio-button " value="2 ">Female</mat-radio-button>
+                <mat-radio-button class="example-radio-button " value="3 ">Custom</mat-radio-button>
             </mat-radio-group>
             <br /><br />
-            <label id="example-radio-group-label">Date of birth: </label>
+            <label id="example-radio-group-label ">Date of birth: </label>
             <br /><br />
-            <mat-form-field appearance="fill" class="width-25">
+            <mat-form-field appearance="fill " class="width-25 ">
                 <mat-label>Day</mat-label>
                 <mat-select>
-                    <mat-option [value]="6"> 1 </mat-option>
-                    <mat-option [value]="6"> 2 </mat-option>
-                    <mat-option [value]="6"> 3 </mat-option>
-                    <mat-option [value]="6"> 4</mat-option>
-                    <mat-option [value]="6"> 5</mat-option>
-                    <mat-option [value]="6"> 6 </mat-option>
-                    <mat-option [value]="6"> 7 </mat-option>
-                    <mat-option [value]="6"> 8 </mat-option>
-                    <mat-option [value]="6"> 9 </mat-option>
-                    <mat-option [value]="6"> 10 </mat-option>
-                    <mat-option [value]="6"> 11 </mat-option>
-                    <mat-option [value]="6"> 12 </mat-option>
-                    <mat-option [value]="6"> 13 </mat-option>
-                    <mat-option [value]="6"> 14 </mat-option>
-                    <mat-option [value]="6"> 15 </mat-option>
-                    <mat-option [value]="6"> 16 </mat-option>
-                    <mat-option [value]="6"> 17 </mat-option>
-                    <mat-option [value]="6"> 18 </mat-option>
-                    <mat-option [value]="6"> 19 </mat-option>
-                    <mat-option [value]="6"> 20 </mat-option>
-                    <mat-option [value]="6"> 21 </mat-option>
-                    <mat-option [value]="6"> 22 </mat-option>
-                    <mat-option [value]="6"> 23 </mat-option>
-                    <mat-option [value]="6"> 24 </mat-option>
-                    <mat-option [value]="6"> 25 </mat-option>
-                    <mat-option [value]="6"> 26 </mat-option>
-                    <mat-option [value]="6"> 27 </mat-option>
-                    <mat-option [value]="6"> 28</mat-option>
-                    <mat-option [value]="6"> 29 </mat-option>
-                    <mat-option [value]="6"> 30 </mat-option>
+                    <mat-option [value]="6 "> 1 </mat-option>
+                    <mat-option [value]="6 "> 2 </mat-option>
+                    <mat-option [value]="6 "> 3 </mat-option>
+                    <mat-option [value]="6 "> 4</mat-option>
+                    <mat-option [value]="6 "> 5</mat-option>
+                    <mat-option [value]="6 "> 6 </mat-option>
+                    <mat-option [value]="6 "> 7 </mat-option>
+                    <mat-option [value]="6 "> 8 </mat-option>
+                    <mat-option [value]="6 "> 9 </mat-option>
+                    <mat-option [value]="6 "> 10 </mat-option>
+                    <mat-option [value]="6 "> 11 </mat-option>
+                    <mat-option [value]="6 "> 12 </mat-option>
+                    <mat-option [value]="6 "> 13 </mat-option>
+                    <mat-option [value]="6 "> 14 </mat-option>
+                    <mat-option [value]="6 "> 15 </mat-option>
+                    <mat-option [value]="6 "> 16 </mat-option>
+                    <mat-option [value]="6 "> 17 </mat-option>
+                    <mat-option [value]="6 "> 18 </mat-option>
+                    <mat-option [value]="6 "> 19 </mat-option>
+                    <mat-option [value]="6 "> 20 </mat-option>
+                    <mat-option [value]="6 "> 21 </mat-option>
+                    <mat-option [value]="6 "> 22 </mat-option>
+                    <mat-option [value]="6 "> 23 </mat-option>
+                    <mat-option [value]="6 "> 24 </mat-option>
+                    <mat-option [value]="6 "> 25 </mat-option>
+                    <mat-option [value]="6 "> 26 </mat-option>
+                    <mat-option [value]="6 "> 27 </mat-option>
+                    <mat-option [value]="6 "> 28</mat-option>
+                    <mat-option [value]="6 "> 29 </mat-option>
+                    <mat-option [value]="6 "> 30 </mat-option>
                 </mat-select>
             </mat-form-field>
 
-            <mat-form-field appearance="fill" class="width-25 ml-1">
+            <mat-form-field appearance="fill " class="width-25 ml-1 ">
                 <mat-label>Month</mat-label>
                 <mat-select>
-                    <mat-option [value]="6"> 1 </mat-option>
-                    <mat-option [value]="6"> 2 </mat-option>
-                    <mat-option [value]="6"> 3 </mat-option>
-                    <mat-option [value]="6"> 4</mat-option>
-                    <mat-option [value]="6"> 5</mat-option>
-                    <mat-option [value]="6"> 6 </mat-option>
-                    <mat-option [value]="6"> 7 </mat-option>
-                    <mat-option [value]="6"> 8 </mat-option>
-                    <mat-option [value]="6"> 9 </mat-option>
-                    <mat-option [value]="6"> 10 </mat-option>
-                    <mat-option [value]="6"> 11 </mat-option>
-                    <mat-option [value]="6"> 12 </mat-option>
+                    <mat-option [value]="6 "> 1 </mat-option>
+                    <mat-option [value]="6 "> 2 </mat-option>
+                    <mat-option [value]="6 "> 3 </mat-option>
+                    <mat-option [value]="6 "> 4</mat-option>
+                    <mat-option [value]="6 "> 5</mat-option>
+                    <mat-option [value]="6 "> 6 </mat-option>
+                    <mat-option [value]="6 "> 7 </mat-option>
+                    <mat-option [value]="6 "> 8 </mat-option>
+                    <mat-option [value]="6 "> 9 </mat-option>
+                    <mat-option [value]="6 "> 10 </mat-option>
+                    <mat-option [value]="6 "> 11 </mat-option>
+                    <mat-option [value]="6 "> 12 </mat-option>
                 </mat-select>
             </mat-form-field>
 
-            <mat-form-field appearance="fill" class="width-25 ml-1">
+            <mat-form-field appearance="fill " class="width-25 ml-1 ">
                 <mat-label>Year</mat-label>
                 <mat-select>
-                    <mat-option [value]="6"> 1990</mat-option>
-                    <mat-option [value]="6"> 1991</mat-option>
-                    <mat-option [value]="6"> 1992</mat-option>
-                    <mat-option [value]="6"> 1993</mat-option>
-                    <mat-option [value]="6"> 1994 </mat-option>
-                    <mat-option [value]="6"> 1995 </mat-option>
-                    <mat-option [value]="6"> 1996 </mat-option>
-                    <mat-option [value]="6"> 1997 </mat-option>
-                    <mat-option [value]="6"> 1998 </mat-option>
-                    <mat-option [value]="6"> 1999 </mat-option>
-                    <mat-option [value]="6"> 2000 </mat-option>
-                    <mat-option [value]="6"> 2001 </mat-option>
-                    <mat-option [value]="6"> 2002 </mat-option>
-                    <mat-option [value]="6"> 2003 </mat-option>
-                    <mat-option [value]="6"> 2004</mat-option>
+                    <mat-option [value]="6 "> 1990</mat-option>
+                    <mat-option [value]="6 "> 1991</mat-option>
+                    <mat-option [value]="6 "> 1992</mat-option>
+                    <mat-option [value]="6 "> 1993</mat-option>
+                    <mat-option [value]="6 "> 1994 </mat-option>
+                    <mat-option [value]="6 "> 1995 </mat-option>
+                    <mat-option [value]="6 "> 1996 </mat-option>
+                    <mat-option [value]="6 "> 1997 </mat-option>
+                    <mat-option [value]="6 "> 1998 </mat-option>
+                    <mat-option [value]="6 "> 1999 </mat-option>
+                    <mat-option [value]="6 "> 2000 </mat-option>
+                    <mat-option [value]="6 "> 2001 </mat-option>
+                    <mat-option [value]="6 "> 2002 </mat-option>
+                    <mat-option [value]="6 "> 2003 </mat-option>
+                    <mat-option [value]="6 "> 2004</mat-option>
 
                 </mat-select>
             </mat-form-field>
             <br />
-            <!-- <mat-form-field appearance="fill" class="width-100">
+            <!-- <mat-form-field appearance="fill " class="width-100 ">
                 <mat-label>Risk Appetite</mat-label>
-                <input matInput placeholder="Enter a number between 1-5" />
-            </mat-form-field> -->
-            <mat-label>Risk Appetite</mat-label>
-            <mat-slider color="primary" thumbLabel tickInterval="1" min="1" max="5" step="1" value="1"></mat-slider>
+                <input matInput placeholder="Enter a number between 1-5 " />
+            </mat-form-field> --<>
+<mat-label>Risk Appetite</mat-label>
+<mat-slider color="primary " thumbLabel tickInterval="1 " min="1 " max="5 " step="1 " value="1 "></mat-slider>
 
-            <br />
-        </div>
-    </mat-grid-tile>
-</mat-grid-list>
+<br />
+</div>
+</mat-grid-tile>
+</mat-grid-list> -->
