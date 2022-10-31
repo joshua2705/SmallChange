@@ -1,68 +1,103 @@
 nav {
-    margin: 0 auto;
-    padding: 0.5rem 1rem;
-    max-width: 100%;
-    display: flex;
-    background-color: rgb(22, 22, 22, 0.9);
-    justify-content: space-between;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  max-width: 100%;
+  display: flex;
+  background-color: rgb(22, 22, 22, 0.9);
+  justify-content: space-between;
+}
+
+ul {
+  margin: 0 -1rem;
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+}
+
+.topNav .icon {
+  display: none;
+  padding: 0.25em 1em;
+  border-style: none;
+  font-family: 'Fidelity Sans';
+  font-size: 16px;
+  background: none;
+  margin-bottom: 1em;
+}
+
+.material-icons {
+  color: #fff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 720px) {
+  nav {
+    height: 1.8em;
   }
 
-  ul {
-    margin: 0 -1rem;
-    list-style: none;
-    padding: 0;
-  }
-  li {
-    display: inline-block;
+  .topNav li {
+    display: flex;
+    justify-content: center;
+    padding: 0.5em 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+    transform: translateY(-3em);
+    width: 100%;
+    height: 2em;
+    position: relative;
+    z-index: 10 !important
   }
 
   .topNav .icon {
-    display: none;
-    padding : 0.25em 1em;
-    border-style: none;
-    font-family: 'Fidelity Sans';
-    font-size: 16px;
-    background: none;
-    margin-bottom: 1em;
+    display: flex;
   }
 
-  .material-icons{
-    color: #fff;
+  .topNav.responsive li {
+    pointer-events: visible;
+    opacity: 1;
+    transform: translateY(0);
+    background-color: #f2f2f2;
+    z-index: 2;
+    position: relative;
   }
 
-  @media screen and (max-width: 720px) {
-    nav {
-      height: 1.8em;
-    }
-
-    .topNav li {
-      display: flex;
-      justify-content: center;
-      padding: 0.5em 0;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.4s ease;
-      transform: translateY(-3em);
-      width: 100%;
-      height: 2em;
-      position: relative;
-      z-index: 10 !important
-    }
-
-    .topNav .icon {
-      display: flex;
-    }
-
-    .topNav.responsive li {
-      pointer-events: visible;
-      opacity: 1;
-      transform: translateY(0);
-      background-color: #f2f2f2;
-      z-index: 2;
-      position: relative;
-    }
-    .topNav.responsive li:hover {
-      background-color:  #cccccc;
-    }
+  .topNav.responsive li:hover {
+    background-color: #cccccc;
   }
+}
+
+.dropdown {
+  opacity: 0;
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+  color: #fff;
+  width: 10rem;
+  background-color: rgb(22, 22, 22, 0.9);
+  position: absolute;
+  right: 0;
+  left: 100;
+  top: 6.75rem;
+  transition: all 0.4s ease;
+  transform: translateY(-1rem);
+}
+
+.dropdown li{
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background-color: rgb(22, 22, 22);
+}
+
+.dropdown.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 

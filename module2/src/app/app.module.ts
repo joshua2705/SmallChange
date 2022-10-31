@@ -26,6 +26,18 @@ import { MatSortModule } from '@angular/material/sort';
 import { TableHeaderComponent } from './trading/table-header/table-header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SearchBarComponent } from './common/search-bar/search-bar.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatRadioModule } from '@angular/material/radio';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatDialogModule} from '@angular/material/dialog';
+import { WalletComponent } from './wallet/wallet.component';
+import{ MatDatepickerModule } from '@angular/material/datepicker';
 import { TradeModalComponent } from './trading/trade-modal/trade-modal.component';
 import { ChartsModule } from 'ng2-charts';
 import { StockChartComponent } from './trading/stock-chart/stock-chart.component';
@@ -46,9 +58,11 @@ import { StockChartComponent } from './trading/stock-chart/stock-chart.component
     LandingPageComponent,
     TableHeaderComponent,
     SearchBarComponent,
+    WalletComponent,
     TradeModalComponent,
     StockChartComponent,
   ],
+  entryComponents:[WalletComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -62,6 +76,18 @@ import { StockChartComponent } from './trading/stock-chart/stock-chart.component
     MatPaginatorModule,
     MatCardModule,
     MatSortModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatSelectModule,
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule,
+    MatRadioModule,
+    MatSliderModule,
+    MatTabsModule,
+    MatDialogModule,
+    MatDatepickerModule,
     ChartsModule
   ],
   providers: [],

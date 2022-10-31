@@ -7,6 +7,7 @@ import { RegisterFormComponent } from './registration/registration.component';
 import { TradeHistoryComponent } from './trade-history/trade-history.component';
 import { TradingComponent } from './trading/trading.component';
 
+
 const routes: Routes = [
   {path:"", component:PortfolioComponent},
   {path:'registration', component: RegisterFormComponent },

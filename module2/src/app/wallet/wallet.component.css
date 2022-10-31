@@ -1,0 +1,75 @@
+.balance {
+  width: 90%;
+  margin: auto;
+  height: 5rem;
+  background-color: rgb(240, 240, 240, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 1rem;
+  padding-bottom: 0;
+  overflow-y: hidden;
+  color: rgb(77, 76, 76);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 5px;
+}
+
+.balance .amount {
+  display: flex;
+}
+
+.balance .material-icons {
+  font-size: 30px;
+}
+
+.update_wallet {
+  width: 90%;
+  height: 60%;
+  margin: 1rem auto 0.25rem auto;
+  border: 0.5px solid rgb(224, 221, 221);
+  padding: 1rem 1rem;
+  overflow-y: hidden;
+}
+
+.update_wallet .deposit {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+.update_wallet .deposit p{
+  margin-top: 1rem;
+  font-size: 16px;
+}
+
+.example-button-toggle-label {
+  display: inline-block;
+  margin: 16px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button {
+  width: 12rem;
+  height: 2.5rem;
+  border: none;
+  background-color: #04bd11;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5%;
+  margin: 0.5rem 30% ;
+}
+
+button:hover{
+  background-color: #47cc50;
+}
+
+.title {
+  display: flex;
+}
+.title h1 {
+  margin-top: 0.25rem;
+  margin-right: 0.5rem;
+}
+

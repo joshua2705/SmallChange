@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { WalletComponent } from 'src/app/wallet/wallet.component';
 
 @Component({
   selector: 'navbar',
@@ -7,19 +9,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog:MatDialog) { }
 
   ngOnInit(): void {
     var navItem = document.getElementById("navbar");
-      console.log(navItem);
-      if(navItem){
-    if (navItem.className === "topNav") {
-      navItem.className += " responsive";
-    } else {
-      navItem.className = "topNav";
-    }   
-  } 
-
+    if (navItem) {
+      if (navItem.className === "topNav") {
+        navItem.className += " responsive";
+      } else {
+        navItem.className = "topNav";
+      }
+    }
   }
 
+  dropdown(): void {
+    var dropdown = document.getElementById("dropdown");
+    if (dropdown) {
+      if (dropdown.className === "dropdown") {
+        dropdown.className += " visible"
+      }
+      else {
+        dropdown.className = "dropdown"
+      }
+    }
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(WalletComponent, {
+      width: '600px',
+      height: '470px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }
+
+

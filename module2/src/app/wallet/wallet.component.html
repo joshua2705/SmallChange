@@ -1,0 +1,45 @@
+<mat-card-content  class="title">
+  <h1 mat-dialog-title >Your Wallet</h1>
+  <i class="material-icons" style="font-size: 40px; color: rgb(104, 101, 101);">account_balance_wallet</i>
+</mat-card-content>
+
+<mat-dialog-content class="balance">
+  <p>Balance available</p>
+  <span class="amount">
+    <i class="material-icons">attach_money</i>
+    <h1>200.00</h1>
+  </span>
+</mat-dialog-content>
+
+<mat-dialog-content class="update_wallet">
+  <mat-tab-group
+    class="tabs"
+    dynamicHeight
+    mat-align-tabs="center"
+    animationDuration="500ms"
+  >
+  <mat-tab label="DEPOSIT">
+    <div  class="deposit">
+      <p>Enter Amount</p>
+      <mat-form-field appearance="fill" floatLabel="always">
+        <input matInput type="number" class="example-right-align" placeholder="0">
+        <span matPrefix>$&nbsp;</span>
+        <span matSuffix>.00</span>
+      </mat-form-field>
+
+    </div>
+    <button>DEPOSIT MONEY</button>
+  </mat-tab>
+  <mat-tab label="WITHDRAW" >
+    <div  class="deposit">
+      <p>Enter Amount</p>
+      <mat-form-field appearance="fill" floatLabel="always">
+        <input matInput type="number" class="example-right-align" placeholder="0">
+        <span matPrefix>$&nbsp;</span>
+        <span matSuffix>.00</span>
+      </mat-form-field>
+    </div>
+    <button>WITHDRAW MONEY</button>
+  </mat-tab>
+  </mat-tab-group>
+</mat-dialog-content>

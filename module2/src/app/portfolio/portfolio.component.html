@@ -1,6 +1,5 @@
 <navbar></navbar>
 <div class="content">
-  <div>
   <div class="searchBox">
     <i class="material-icons" (click)="openSearch()">search</i>
     <input
@@ -11,64 +10,80 @@
       (keyup)="applyFilter($event)"
     />
   </div>
+  <mat-tab-group
+    class="tabs"
+    dynamicHeight
+    mat-align-tabs="center"
+    animationDuration="500ms"
+    mat-stretch-tabs
+  >
+    <mat-tab label="Stocks" >
+      <ng-template matTabContent>
+        <div class="overview">
+          <mat-card id="card-overview">
+            <div class="acc_overview">
+              <mat-card-subtitle>Invested</mat-card-subtitle>
+              <mat-card-title>{{
+                invested | currency: "USD":true:".2-2"
+              }}</mat-card-title>
+            </div>
+            <div class="acc_overview">
+              <mat-card-subtitle>Current</mat-card-subtitle>
+              <mat-card-title>{{
+                current | currency: "USD":true:".2-2"
+              }}</mat-card-title>
+            </div>
+            <div class="acc_overview">
+              <mat-card-subtitle>Total Returns</mat-card-subtitle>
+              <mat-card-title [style.color]="totalReturns > 0 ? 'green' : 'red'"
+                >{{ totalReturns > 0 ? "+" : "" }}
+                {{ totalReturns | currency: "USD":true:".2-2" }}</mat-card-title
+              >
+            </div>
+          </mat-card>
+        </div>
 
-  <div class="overview">
-    <mat-card id="card-overview">
-      <div class="acc_overview">
-        <mat-card-subtitle>Invested</mat-card-subtitle>
-        <mat-card-title>{{
-          invested | currency: "USD":true:".2-2"
-        }}</mat-card-title>
-      </div>
-      <div class="acc_overview">
-        <mat-card-subtitle>Current</mat-card-subtitle>
-        <mat-card-title>{{
-          current | currency: "USD":true:".2-2"
-        }}</mat-card-title>
-      </div>
-      <div class="acc_overview">
-        <mat-card-subtitle>Total Returns</mat-card-subtitle>
-        <mat-card-title [style.color]="totalReturns > 0 ? 'green' : 'red'"
-          >{{ totalReturns > 0 ? "+" : "" }}
-          {{ totalReturns | currency: "USD":true:".2-2" }}</mat-card-title
-        >
-      </div>
-    </mat-card>
-  </div>
+        <div class="container">
+          <mat-card *ngFor="let stock of obs | async">
+            <div>
+              <mat-card-subtitle>
+                <p class="values">{{ stock.quantity }} &nbsp;</p>
+                <p>Qty</p>
+              </mat-card-subtitle>
+              <mat-card-title>{{ stock.symbol }}</mat-card-title>
+              <br />
+              <mat-card-subtitle>
+                <p>Invested &nbsp;</p>
+                <p class="values">
+                  {{ stock.totalInvestment | number: ".2-2" }}
+                </p></mat-card-subtitle
+              >
+            </div>
+            <div>
+              <p [style.color]="stock.percentChange > 0 ? 'green' : 'red'">
+                {{ stock.percentChange > 0 ? "+" : ""
+                }}{{ stock.percentChange }}%
+              </p>
+              <p
+                id="price"
+                [style.color]="stock.priceChange > 0 ? 'green' : 'red'"
+              >
+                {{ stock.priceChange > 0 ? "+" : ""
+                }}{{ stock.priceChange | currency: "USD":true:".2-2" }}
+              </p>
+            </div>
+          </mat-card>
+          <mat-paginator
+            [pageSizeOptions]="[5, 10, 20]"
+            showFirstLastButtons
+            aria-label="Select page of periodic elements"
+          >
+          </mat-paginator>
+        </div>
+      </ng-template>
+    </mat-tab>
+
+    <mat-tab label="Mutual Funds"> Content 2 </mat-tab>
+    <mat-tab label="Gold Bonds"> Content 3 </mat-tab>
+  </mat-tab-group>
 </div>
-
-  <div class="container">
-    <mat-card *ngFor="let stock of obs | async ">
-      <div>
-        <mat-card-subtitle>
-          <p class="values">{{ stock.quantity }} &nbsp;</p>
-          <p>Qty</p>
-        </mat-card-subtitle>
-        <mat-card-title>{{ stock.symbol }}</mat-card-title>
-        <br />
-        <mat-card-subtitle>
-          <p>Invested &nbsp;</p>
-          <p class="values">
-            {{ stock.totalInvestment | number: ".2-2" }}
-          </p></mat-card-subtitle
-        >
-      </div>
-      <div>
-        <p [style.color]="stock.percentChange > 0 ? 'green' : 'red'">
-          {{ stock.percentChange > 0 ? "+" : "" }}{{ stock.percentChange }}%
-        </p>
-        <p id="price" [style.color]="stock.priceChange > 0 ? 'green' : 'red'">
-          {{ stock.priceChange > 0 ? "+" : ""
-          }}{{ stock.priceChange | currency: "USD":true:".2-2" }}
-        </p>
-      </div>
-    </mat-card>
-    <mat-paginator
-      [pageSizeOptions]="[5, 10, 20]"
-      showFirstLastButtons
-      aria-label="Select page of periodic elements"
-    >
-    </mat-paginator>
-  </div>
-</div>
-
