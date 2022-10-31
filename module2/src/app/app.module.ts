@@ -37,6 +37,8 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
 import { WalletComponent } from './wallet/wallet.component';
+import { authInterceptorProviders } from './helpers/http.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -64,6 +66,7 @@ import { WalletComponent } from './wallet/wallet.component';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
+    HttpClientModule,
     LoginModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
@@ -83,7 +86,7 @@ import { WalletComponent } from './wallet/wallet.component';
     MatTabsModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
