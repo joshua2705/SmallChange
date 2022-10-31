@@ -26,6 +26,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { TableHeaderComponent } from './trading/table-header/table-header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SearchBarComponent } from './common/search-bar/search-bar.component';
+import { TradeModalComponent } from './trading/trade-modal/trade-modal.component';
+import { ChartsModule } from 'ng2-charts';
+import { StockChartComponent } from './trading/stock-chart/stock-chart.component';
 
 
 @NgModule({
@@ -43,6 +46,8 @@ import { SearchBarComponent } from './common/search-bar/search-bar.component';
     LandingPageComponent,
     TableHeaderComponent,
     SearchBarComponent,
+    TradeModalComponent,
+    StockChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +62,7 @@ import { SearchBarComponent } from './common/search-bar/search-bar.component';
     MatPaginatorModule,
     MatCardModule,
     MatSortModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

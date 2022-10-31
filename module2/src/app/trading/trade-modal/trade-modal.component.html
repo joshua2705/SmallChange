@@ -1,0 +1,29 @@
+<!--section class="modal-section">
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Trade {{selectedStock.symbol}} </h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="information">
+                <div>Available Balance: {{fund}}</div> 
+                <div>Available Equity: {{thisStock}}</div>
+            </div>
+            <br>
+          <form>
+            <div class="form-group">
+              <label for="trade-amount">Amount in USD</label>
+              <div class="input-group">
+                <input type="number" id="trade-amount" class="form-control" >
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" (click)="modal.close('Sell click')">Sell</button>
+          <button type="button" class="btn btn-success" (click)="modal.close('Buy click')">Buy</button>
+        </div>
+      </ng-template>
+</section-->
