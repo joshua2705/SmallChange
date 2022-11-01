@@ -107,10 +107,42 @@ section {
     margin: 0;
   }
   
+  .modal-title{
+    margin: 0;
+  }
+
+  #modal-basic-title{
+    font-weight: bold;
+    font-size: large;
+    margin-right: 10px;
+  }
 
 /* Search Bar Styling */
 
 :host ::ng-deep app-search-bar .searchBox{
   margin-left: 15%;
   width: 75%;
+}
+
+
+/* Modal information card */
+
+.information-cards-row{
+  display: flex;
+}
+
+.information-cards-container{
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 0.5rem;
+}
+
+.information-cards{
+  flex-grow: 1;
+  flex-basis: 50%;
+  margin: 1em;
+}
+
+.buy-btn, .sell-btn{
+  width: 100px;
 }

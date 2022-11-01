@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chart from 'chart.js';
-import { ChartOptions, ChartType } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-stock-chart',
@@ -23,18 +21,21 @@ export class StockChartComponent implements OnInit {
     
           // The data for our dataset
           data: {
-              labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+              labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
               datasets: [{
-                  label: 'My First dataset',
-                  backgroundColor: 'rgb(255, 99, 132)',
-                  borderColor: 'rgb(255, 99, 132)',
+                  backgroundColor: 'rgb(0, 179, 0)',
+                  borderColor: 'rgb(0, 179, 0)',
                   fill:false,
-                  data: [0, 10, 5, 2, 20, 30, 45]
+                  data: [40, 10, 3, 47, 25, 30, 20]
               }]
           },
     
           // Configuration options go here
-          options: {}
+          options: {
+            legend: {
+              display: false,
+          }
+          }
       });
     }
     else{
