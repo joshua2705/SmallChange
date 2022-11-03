@@ -27,6 +27,7 @@
     "bootstrap": "^5.2.1",
     "jquery": "^3.6.1",
     "material": "^0.4.3",
+    "moment": "^2.29.4",
     "ngx-pagination": "^6.0.2",
     "paginator": "^1.0.0",
     "popper.js": "^1.16.1",
