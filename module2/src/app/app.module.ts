@@ -134,7 +134,7 @@ const notifierDefaultOptions: NotifierOptions = {
     MatDialogModule,
     MatDatepickerModule,
     MatSnackBarModule,
-    ChartsModule
+    ChartsModule,
   NotifierModule.withConfig(notifierDefaultOptions),
   ],
   providers: [authInterceptorProviders],
