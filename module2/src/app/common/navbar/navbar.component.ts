@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { WalletComponent } from 'src/app/wallet/wallet.component';
 
 @Component({
@@ -9,7 +10,7 @@ import { WalletComponent } from 'src/app/wallet/wallet.component';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public dialog:MatDialog) { }
+  constructor(public dialog:MatDialog, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     var navItem = document.getElementById("navbar");
@@ -44,6 +45,12 @@ export class NavbarComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
+
+  logout(): void {
+    this.tokenStorageService.signOut();
+  }
+
 }
 
 

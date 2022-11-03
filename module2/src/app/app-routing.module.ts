@@ -9,7 +9,7 @@ import { TradingComponent } from './trading/trading.component';
 
 
 const routes: Routes = [
-  {path:"", component:PortfolioComponent},
+  {path:"", component: LandingPageComponent},
   {path:'registration', component: RegisterFormComponent },
   {path:'portfolio', component: PortfolioComponent},
   {path:'activity', component: TradeHistoryComponent},

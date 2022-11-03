@@ -1,8 +1,5 @@
-
+<!--
 <div id="mainPage">
-    
-    
-    
     <div id="form">
         <br>
         <div id="header">Login Page</div>
@@ -19,7 +16,7 @@
                 <button class="button"  (click)="authenticate()">Log in</button>
             </div>
             <div id="forgotBox">
-                <a href= "#">Forgot your password?</a> 
+                <a href= "#">Forgot your password?</a>
 
             </div>
             <div id="container-register">
@@ -28,8 +25,71 @@
             </div>
         </div>
     </div>
-    
-
-
-
+</div> -->
+<div>
+  <h3>Login</h3>
 </div>
+<form
+  [formGroup]="loginForm"
+  autocomplete="off"
+  (ngSubmit)="LoginUser(loginForm.value)"
+  fxLayout="column wrap"
+  fxLayoutAlign="center center"
+  fxLayoutGap="10px"
+>
+  <mat-card-content>
+        <div class="container">
+          <mat-form-field appearance="fill" class="width-100">
+            <mat-label>Email address</mat-label>
+            <input
+              matInput
+              placeholder="Ex. pat@example.com"
+              type="text"
+              formControlName="email"
+            />
+            <mat-error *ngIf="hasError('email', 'required')"
+              >e-mail is required</mat-error
+            >
+          </mat-form-field>
+          <br/>
+          <mat-form-field appearance="fill" class="width-100">
+            <mat-label>Enter Password</mat-label>
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              formControlName="password"
+            />
+            <button
+              style="border: none"
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{
+                hide ? "visibility_off " : "visibility "
+              }}</mat-icon>
+            </button>
+            <mat-error *ngIf="hasError('password', 'required')"
+              >Password is required</mat-error>
+              <mat-error *ngIf="hasError('password', 'minlength')">
+                You have less than 6 characters
+              </mat-error>
+              <mat-error *ngIf="hasError('password', 'maxlength')">
+                You have more than 24 characters
+              </mat-error>
+          </mat-form-field>
+        </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      id="login"
+      mat-raised-button
+      color="primary"
+      [disabled]="!loginForm.valid"
+    >
+      Login
+    </button>
+  </mat-card-actions>
+</form>

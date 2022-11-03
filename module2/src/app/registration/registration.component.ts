@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  AbstractControl,
-  FormBuilder,
   FormControl,
   FormGroup,
-  NgForm,
   Validators,
 } from '@angular/forms';
-import Validation from './validation';
-
-
-
+import { AuthService } from '../services/auth.service';
+import { NotifierService } from 'angular-notifier';
+import { TokenStorageService } from '../services/token-storage.service';
+import { Router } from '@angular/router';
 
 export interface User{
   firstName: String;
@@ -30,31 +27,18 @@ export interface User{
   styleUrls: ['./registration.component.css'],
 })
 export class RegisterFormComponent implements OnInit {
-  
+
   hide = true;
   public registerForm!: FormGroup;
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 
-  constructor() { }
-
-  // checkoutForm = this.formBuilder.group(
-  //   {
-  //     email: '',
-  //     password: ['', [Validators.required]],
-  //     confirmPassword: ['', [Validators.required]],
-  //     firstName: '',
-  //     lastName: '',
-  //     dob: '',
-  //     phoneNumber: '',
-  //     riskAppetite: '',
-  //   },
-  //   {
-  //     validators: [Validation.match('password', 'confirmPassword')],
-  //   }
-  // );
-
-  // submitted = false;
-
-  // constructor(private formBuilder: FormBuilder) {}
+  private readonly notifier: NotifierService;
+  constructor(private authService: AuthService, notifierService: NotifierService,
+    private tokenStorage: TokenStorageService,  private router: Router) {
+    this.notifier = notifierService;
+   }
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -94,22 +78,35 @@ export class RegisterFormComponent implements OnInit {
       dob: userFormValue.dob,
       risk: userFormValue.risk,
     }
+    this.onSubmit(user);
+  }
 
-  // onSubmit() {
-  //   this.submitted = true;
-  //   if (this.checkoutForm.invalid) {
-  //     return;
-  //   }
-  //   console.log(JSON.stringify(this.checkoutForm.value, null, 2));
-  // }
+  onSubmit(user: User): void {
+    console.log(user);
+    const {firstName, lastName, phoneNumber, email, password, confirmPassword, gender, dob,risk} = user;
+    const username = `${firstName} ${lastName}`
 
-  // onReset(): void {
-  //   this.submitted = false;
-  //   this.checkoutForm.reset();
-  // }
-
-  // get f(): { [key: string]: AbstractControl } {
-  //   return this.checkoutForm.controls;
-  // }
-}
+    const date = dob.getDate();
+    const month = dob.getMonth() + 1;
+    const year = dob.getFullYear();
+    const dateOfBirth = `${year}-${month}-${date}`
+    console.log(dateOfBirth)
+    this.authService.register(username, email, password, phoneNumber, gender, dateOfBirth, risk).subscribe({
+      next: data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUser(data);
+        this.notifier.notify('success', data.message);
+        this.router.navigate(['portfolio'])
+      },
+      error: err => {
+        console.log(err)
+        this.errorMessage = err.error.message;
+        this.notifier.notify('success', this.errorMessage);
+        this.isSignUpFailed = true;
+      }
+    });
+  }
 }
