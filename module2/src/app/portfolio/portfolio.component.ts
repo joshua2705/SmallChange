@@ -44,11 +44,6 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  ngOnChange(){
-    if(this.dataSource.paginator)
-      this.dataSource.paginator.firstPage()
-  }
-
   applyFilter(filterValue: any) {
     filterValue = filterValue.target.value.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches

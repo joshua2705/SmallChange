@@ -41,7 +41,10 @@ import{ MatDatepickerModule } from '@angular/material/datepicker';
 import { authInterceptorProviders } from './helpers/http.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
-
+import { TradeModalComponent } from './trading/trade-modal/trade-modal.component';
+import { ChartsModule } from 'ng2-charts';
+import { StockChartComponent } from './trading/stock-chart/stock-chart.component';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 const notifierDefaultOptions: NotifierOptions = {
   position: {
     horizontal: {
@@ -100,6 +103,8 @@ const notifierDefaultOptions: NotifierOptions = {
     TableHeaderComponent,
     SearchBarComponent,
     WalletComponent,
+    TradeModalComponent,
+    StockChartComponent,
 
   ],
   entryComponents:[WalletComponent],
@@ -128,6 +133,8 @@ const notifierDefaultOptions: NotifierOptions = {
     MatTabsModule,
     MatDialogModule,
     MatDatepickerModule,
+    MatSnackBarModule,
+    ChartsModule,
   NotifierModule.withConfig(notifierDefaultOptions),
   ],
   providers: [authInterceptorProviders],
