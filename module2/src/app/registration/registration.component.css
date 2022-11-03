@@ -1,6 +1,6 @@
 h3 {
     text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 1.5rem;
 }
 
@@ -37,7 +37,18 @@ mat-grid-tile {
     width: 25%;
 }
 
-mat-slider{
-  width: 80%;
-  margin-left: 2rem;
+mat-slider {
+    width: 80%;
+    margin-left: 2rem;
+}
+
+#Register {
+    width: 13rem;
+    height: 3rem;
+    border: none;
+    background-color: #04bd11;
+    color: white;
+    font-size: 1.25rem;
+    border-radius: 5%;
+    margin-left: 43%;
 }

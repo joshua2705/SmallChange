@@ -1,4 +1,4 @@
-#logo {
+/* #logo {
     margin: 0;
     width: 100%;
     background-color: #568200;
@@ -7,8 +7,8 @@
     font-size: 32px;
     line-height: 1.5em;
   }
- 
-  
+
+
   form {
     display: inline-block;
     margin-left: 25%;
@@ -17,11 +17,11 @@
     width: 50%;
     background-color: #f2f2f2;
 }
-  
+
   #header {
     box-sizing: content-box;
     padding: 0;
-   
+
     font-family: 'Fidelity Sans', 'Ariel', 'sans-serif', 'Arial','sans-serif' ;
     font-size: 32px;
     line-height: 1.5em;
@@ -30,11 +30,11 @@
   }
 
   a{
-    color: #024A7A ; 
+    color: #024A7A ;
     font-family : "Fidelity Sans"
   }
- 
-  
+
+
   a:hover{
     outline: 1px dotted #ccc;
   }
@@ -45,11 +45,11 @@
     max-width: 18rem;
     border: 1px solid #cccccc;
   }
-  
+
   #formGroup {
     margin-bottom: 1.5em;
   }
-  
+
   #forgotBox {
     margin-top: 1.5rem;
     text-align: center;
@@ -59,11 +59,11 @@
     max-width:100%;
     margin: auto;
   }
-  
+
   #form {
     margin: 4em 1em;
   }
-  
+
   #footer {
     border-top: 1px solid #ccc;
   }
@@ -83,9 +83,9 @@
     cursor: pointer;
     font-family : "Fidelity Sans";
     line-height: 1.5em;
-  
-  
-  
+
+
+
   }
   input{
     width: 100%;
@@ -112,5 +112,44 @@
     margin-top: 1rem;
     text-align: center;
   }
-  
-  
+
+   */
+   h3 {
+    text-align: center;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+
+div {
+    width: 23%;
+    margin: auto;
+}
+
+.container {
+  margin-top: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 35px 25px;
+}
+
+
+mat-grid-tile {
+    background: #fafafa;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+#login {
+    width: 13rem;
+    height: 3rem;
+    border: none;
+    background-color: #04bd11;
+    color: white;
+    font-size: 1.25rem;
+    border-radius: 5%;
+    margin-left: 42.5%;
+    margin-top: 2rem;
+}

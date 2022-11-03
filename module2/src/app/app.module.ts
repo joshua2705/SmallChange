@@ -15,7 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatTableModule } from '@angular/material/table'
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { LoginModule } from './login/login.module';
+import { LoginPageComponent } from './login/login-page/login-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import { SearchPipe } from './pipes/search.pipe';
@@ -37,14 +37,57 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
 import { WalletComponent } from './wallet/wallet.component';
+import{ MatDatepickerModule } from '@angular/material/datepicker';
 import { authInterceptorProviders } from './helpers/http.interceptor';
 import { HttpClientModule } from '@angular/common/http';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
 
+const notifierDefaultOptions: NotifierOptions = {
+  position: {
+    horizontal: {
+      position: 'left',
+      distance: 12,
+    },
+    vertical: {
+      position: 'bottom',
+      distance: 12,
+      gap: 10,
+    },
+  },
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: false,
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4,
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease',
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50,
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease',
+    },
+    overlap: 150,
+  },
+};
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterFormComponent,
+    LoginPageComponent,
     PortfolioComponent,
     TradeHistoryComponent,
     TradingComponent,
@@ -67,7 +110,6 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     NgbModule,
     HttpClientModule,
-    LoginModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
     MatTableModule,
@@ -84,7 +126,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatRadioModule,
     MatSliderModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+  NotifierModule.withConfig(notifierDefaultOptions),
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
