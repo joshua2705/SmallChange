@@ -15,7 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatTableModule } from '@angular/material/table'
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { LoginModule } from './login/login.module';
+import { LoginPageComponent } from './login/login-page/login-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import { SearchPipe } from './pipes/search.pipe';
@@ -38,15 +38,59 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
 import { WalletComponent } from './wallet/wallet.component';
 import{ MatDatepickerModule } from '@angular/material/datepicker';
+import { authInterceptorProviders } from './helpers/http.interceptor';
+import { HttpClientModule } from '@angular/common/http';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { TradeModalComponent } from './trading/trade-modal/trade-modal.component';
 import { ChartsModule } from 'ng2-charts';
 import { StockChartComponent } from './trading/stock-chart/stock-chart.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+const notifierDefaultOptions: NotifierOptions = {
+  position: {
+    horizontal: {
+      position: 'left',
+      distance: 12,
+    },
+    vertical: {
+      position: 'bottom',
+      distance: 12,
+      gap: 10,
+    },
+  },
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: false,
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4,
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease',
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50,
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease',
+    },
+    overlap: 150,
+  },
+};
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterFormComponent,
+    LoginPageComponent,
     PortfolioComponent,
     TradeHistoryComponent,
     TradingComponent,
@@ -61,6 +105,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     WalletComponent,
     TradeModalComponent,
     StockChartComponent,
+
   ],
   entryComponents:[WalletComponent],
   imports: [
@@ -69,7 +114,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    LoginModule,
+    HttpClientModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
     MatTableModule,
@@ -90,8 +135,9 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatDatepickerModule,
     MatSnackBarModule,
     ChartsModule
+  NotifierModule.withConfig(notifierDefaultOptions),
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

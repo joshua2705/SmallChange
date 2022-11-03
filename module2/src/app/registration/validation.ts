@@ -1,21 +1,16 @@
-import { AbstractControl, ValidatorFn } from '@angular/forms';
+import { ValidatorFn, AbstractControl, FormGroup, ValidationErrors } from '@angular/forms';
 
-export default class Validation {
-  static match(controlName: string, checkControlName: string): ValidatorFn {
-    return (controls: AbstractControl) => {
-      const control = controls.get(controlName);
-      const checkControl = controls.get(checkControlName);
-
-      if (checkControl?.errors && !checkControl.errors['matching']) {
-        return null;
+export function datePickerValidator(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    let forbidden = true;
+    if (control.value) {
+      const date: Date = control.value;
+      if (date.getFullYear() <= 2004) {
+        forbidden = false;
       }
-
-      if (control?.value !== checkControl?.value) {
-        controls.get(checkControlName)?.setErrors({ matching: true });
-        return { matching: true };
-      } else {
-        return null;
-      }
-    };
-  }
+    }
+    return forbidden ? { invalidDOBYear: true } : null;
+  };
 }
+
+
