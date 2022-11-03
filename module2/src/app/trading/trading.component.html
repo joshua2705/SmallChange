@@ -82,11 +82,77 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-success sell-btn" (click)="modal.close('Sell click')">Sell</button>
-          <button type="button" class="btn btn-success buy-btn" (click)="modal.close('Buy click')">Buy</button>
+          <button type="button" class="btn btn-success buy-btn" 
+                (click)="modal.close('Buy click'); openBuyModal(buymodal)">Buy</button>
+          <button type="button" class="btn btn-success sell-btn" 
+                (click)="modal.close('Sell click'); openSellModal(sellmodal)">Sell</button>
         </div>
       </ng-template>
 </section>
+
+<section class="buy-modal-section">
+  <ng-template #buymodal let-modal>
+      <div class="modal-header">
+        <div>
+          <span class="modal-title" id="buy-modal-basic-title">{{selectedStock.symbol}} </span>
+          <h4 class="modal-title">{{selectedStock.name}}</h4>
+        </div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="container">
+        <form class="buy-form">
+          <mat-card-title>USD</mat-card-title>
+          <mat-card-subtitle>Buy power: $35000</mat-card-subtitle>
+          <mat-form-field class="buy-form-field" appearance="fill">
+            <mat-label>Amount</mat-label>
+            <input type="number" matInput placeholder="0" (focus)="showPrefix()" (blur)="hidePrefix()" >
+            <span *ngIf="prefix" matPrefix>$&nbsp;</span>
+          </mat-form-field>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn proceed-buy-btn" 
+              (click)="modal.close('Buy click'); boughtToast()">Proceed Buy</button>
+      </div>
+    </ng-template>
+</section>
+
+
+<section class="sell-modal-section">
+  <ng-template #sellmodal let-modal>
+      <div class="modal-header">
+        <div>
+          <span class="modal-title" id="sell-modal-basic-title">{{selectedStock.symbol}} </span>
+          <h4 class="modal-title">{{selectedStock.name}}</h4>
+        </div>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="container">
+        <mat-card>
+          <mat-card-title>Selling USD</mat-card-title>
+          <mat-card-subtitle>$35000</mat-card-subtitle>
+        </mat-card>
+        <mat-card>
+          <mat-card-title>Shares</mat-card-title>
+          <mat-card-subtitle>960</mat-card-subtitle>
+        </mat-card>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn proceed-buy-btn" 
+              (click)="modal.close('Buy click'); soldToast()">Proceed Sell</button>
+      </div>
+    </ng-template>
+</section>
+
+
 <section class="error-section" *ngIf="!stocks.length">
     No more stocks
 </section>

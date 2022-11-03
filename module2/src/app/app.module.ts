@@ -41,7 +41,7 @@ import{ MatDatepickerModule } from '@angular/material/datepicker';
 import { TradeModalComponent } from './trading/trade-modal/trade-modal.component';
 import { ChartsModule } from 'ng2-charts';
 import { StockChartComponent } from './trading/stock-chart/stock-chart.component';
-
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -88,6 +88,7 @@ import { StockChartComponent } from './trading/stock-chart/stock-chart.component
     MatTabsModule,
     MatDialogModule,
     MatDatepickerModule,
+    MatSnackBarModule,
     ChartsModule
   ],
   providers: [],

@@ -5,6 +5,7 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-trading',
@@ -26,7 +27,7 @@ export class TradingComponent implements OnInit {
   displayedColumns: string[] = ['symbol', 'quantity','exg_price','total_investment','percent_change', 'price_change'];
 
 
-  constructor(private stockService:GlobalstockService,private modalService: NgbModal) { }
+  constructor(private stockService:GlobalstockService,private modalService: NgbModal, private _snackBar: MatSnackBar) { }
 
 
   dataSource = new MatTableDataSource<GlobalStock>(this.stockService.getGlobalStocks());
@@ -52,16 +53,22 @@ export class TradingComponent implements OnInit {
     });
   }
   
-  openSearch():void {
-    if(this.toggleFlag){
-      document.getElementById("searchStocks")?.focus();
-      this.toggleFlag = false
-    }
-    else{
-      document.getElementById("searchStocks")?.blur();
-      this.toggleFlag = true
-    }
+  openBuyModal(buymodal:any){
+      this.modalService.open(buymodal, {ariaLabelledBy: 'buy-modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
   }
+
+  openSellModal(sellmodal:any){
+    this.modalService.open(sellmodal, {ariaLabelledBy: 'sell-modal-basic-title'}).result.then((result) => {
+    this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+}
+
 
   applyFilter(filterValue: any) {
     console.log("Received", filterValue)
@@ -78,4 +85,19 @@ export class TradingComponent implements OnInit {
     }
   }
 
+  prefix:boolean = false
+  showPrefix():void{
+    this.prefix = true
+  }
+  hidePrefix():void{
+    this.prefix = false
+  }
+
+  boughtToast(){
+    this._snackBar.open("Transaction Successful","",{duration:3000});
+  }
+
+  soldToast(){
+    this._snackBar.open("Stocks Sold successfully","",{duration:3000})
+  }
 }

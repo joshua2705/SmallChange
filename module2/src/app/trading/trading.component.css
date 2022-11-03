@@ -146,3 +146,41 @@ section {
 .buy-btn, .sell-btn{
   width: 100px;
 }
+
+/* buy modal */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.buy-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.buy-form-field {
+  width: 100%;
+}
+
+.proceed-buy-btn{
+  width: 50%;
+  padding: 10px;
+  margin: 0;
+  
+  border: none;
+  cursor: pointer;
+
+  color: #ffffff;
+  background-color: #AA66CC;
+  -webkit-transition: color 0.5s, background-color 0.5s;
+  -moz-transition: color 0.5s, background-color 0.5s;
+  -o-transition: color 0.5s, background-color 0.5s;
+}
+
+.proceed-buy-btn:hover {
+  color: #ffffff;
+  background-color: #db92ff;
+}
