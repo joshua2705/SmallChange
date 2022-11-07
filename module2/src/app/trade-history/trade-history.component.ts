@@ -15,6 +15,9 @@ import {LiveAnnouncer} from '@angular/cdk/a11y';
 })
 export class TradeHistoryComponent implements OnInit {
 
+
+
+  
   stocks: Stock[] = [];
   astocks: Stock[] = [];
   config: any;
