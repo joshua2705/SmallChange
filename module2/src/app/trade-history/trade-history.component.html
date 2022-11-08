@@ -15,26 +15,22 @@
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort >
   
       <!-- ID Column -->
-      <ng-container matColumnDef="symbol">
-        <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number"> Symbol </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.symbol}} </mat-cell>
+      <ng-container matColumnDef="tradeid">
+        <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number"> Trade Id </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.tradeId}} </mat-cell>
       </ng-container>
   
       <!-- Progress Column -->
-      <ng-container matColumnDef="orderDate">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Order Date </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.orderDate}} </mat-cell>
+      <ng-container matColumnDef="tickerid">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>tickerid </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.ticker}} </mat-cell>
       </ng-container>
   
-      <!-- Name Column -->
-      <ng-container matColumnDef="transactionDate">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Transaction Date </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.transactionDate}} </mat-cell>
-      </ng-container>
+    
   
-      <ng-container matColumnDef="type">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.type}} </mat-cell>
+      <ng-container matColumnDef="tradeType">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>tradetype </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.tradeType}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="quantity">
@@ -42,11 +38,15 @@
         <mat-cell *matCellDef="let row"> {{row.quantity}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="exgPrice">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Exchange Price </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.exgPrice}} </mat-cell>
+      <ng-container matColumnDef="purchaseprice">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Purchase Price </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.purchasePrice}} </mat-cell>
       </ng-container>
       
+      <ng-container matColumnDef="purchasedate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Purchase Date </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.purchaseDate}} </mat-cell>
+      </ng-container>
   
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;">

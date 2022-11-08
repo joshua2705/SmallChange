@@ -6,6 +6,7 @@ import { ActivityService } from '../service/activity.service';
 import { Observable } from 'rxjs';
 import {MatSort, Sort} from '@angular/material/sort';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
+import { trade } from '../models/trade';
 
 
 @Component({
@@ -16,34 +17,48 @@ import {LiveAnnouncer} from '@angular/cdk/a11y';
 export class TradeHistoryComponent implements OnInit {
 
 
+ 
 
   
-  stocks: Stock[] = [];
-  astocks: Stock[] = [];
+  stocks: trade[] = [];
+  astocks: trade[] = [];
+  tradedList: trade[] = [];
   config: any;
-  displayedColumns: string[] = ['symbol', 'orderDate','transactionDate','type','quantity', 'exgPrice'];
-  dataSource = new MatTableDataSource<Stock>(this.historyService.getStockActivity());
+  displayedColumns: string[] = ['tradeid', 'tickerid','tradeType','quantity', 'purchaseprice','purchasedate'];
+  dataSource: any = null;
   @ViewChild(MatPaginator)paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
   searchTerm: string = '';
-  obs!: Observable<Stock[]>;
+  obs!: Observable<trade[]>;
 
   toggleFlag:boolean = true;
 
 
   constructor(private historyService: ActivityService, private _liveAnnouncer: LiveAnnouncer) {}
 
+  getTradeHistory(){
+    this.historyService.getTradeHistory().subscribe(
+      data => {
+        console.log(data);
+        this.tradedList = data;
+        this.dataSource = new MatTableDataSource<trade>(this.tradedList);
+        this.obs = this.dataSource.connect();
+        this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+      }
+    );
+  }
+
 
 
   ngOnInit(): void {
-    this.stocks = this.historyService.getStockActivity();
-    this.obs = this.dataSource.connect();
+    this.getTradeHistory();
+    
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    
   }
 
   applyFilter(filterValue: any) {
@@ -76,16 +91,18 @@ export class TradeHistoryComponent implements OnInit {
     this.stocks = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
-        case 'symbol':
-          return compare(a.symbol, b.symbol, isAsc);
-        case 'orderDate':
-          return compare(a.orderDate, b.orderDate, isAsc);
-        case 'transactionDate':
-          return compare(a.transactionDate, b.transactionDate, isAsc);
-        case 'type':
-          return compare(a.type, b.type, isAsc);
+        case 'tradeid':
+          return compare(a.tradeId, b.tradeId, isAsc);
+        case 'tickerid':
+          return compare(a.ticker, b.ticker, isAsc);
+        case 'tradetype':
+          return compare(a.tradeType, b.tradeType, isAsc);
         case 'quantity':
           return compare(a.quantity, b.quantity, isAsc);
+        case 'purchaseprice':
+          return compare(a.purchasePrice, b.purchasePrice, isAsc);
+        case 'purchasedate':
+          return compare(a.purhchaseDate, b.purhchaseDate, isAsc);
         default:
           return 0;
       }
