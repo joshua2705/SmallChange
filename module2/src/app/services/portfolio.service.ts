@@ -13,77 +13,7 @@ const PORTFOLIO_API = 'http://localhost:8080/smallchange/position/';
 })
 
 export class PortfolioService {
-  portfolio: Stock[] = [{
-    symbol: "HDFCBANK",
-    quantity: 2,
-    orderDate: '',
-    transactionDate: '',
-    exgPrice: 0,
-    totalInvestment: 400.00,
-    type: '',
-    percentChange: +28.25,
-    priceChange: +55.00,
-  }, {
-    symbol: "HINDUNILVR",
-    quantity: 1,
-    orderDate: '',
-    transactionDate: '',
-    exgPrice: 0,
-    totalInvestment: 666.00,
-    type: '',
-    percentChange: +8.84,
-    priceChange: +58.90,
-  }, {
-    symbol: "ASIANPAINTS",
-    quantity: 4,
-    orderDate: '',
-    transactionDate: '',
-    exgPrice: 0,
-    totalInvestment: 876.00,
-    type: '',
-    percentChange: -2.37,
-    priceChange: -20.78,
-  },{
-    symbol: "ASIANPAINTS",
-    quantity: 4,
-    orderDate: '',
-    transactionDate: '',
-    exgPrice: 0,
-    totalInvestment: 876.00,
-    type: '',
-    percentChange: -2.37,
-    priceChange: -20.78,
-  }, {
-    symbol: "ASIANPAINTS",
-    quantity: 4,
-    orderDate: '',
-    transactionDate: '',
-    exgPrice: 0,
-    totalInvestment: 876.00,
-    type: '',
-    percentChange: -2.37,
-    priceChange: -20.78,
-  }, {
-    symbol: "ASIANPAINTS",
-    quantity: 4,
-    orderDate: '',
-    transactionDate: '',
-    exgPrice: 0,
-    totalInvestment: 876.00,
-    type: '',
-    percentChange: -2.37,
-    priceChange: -20.78,
-  }, {
-    symbol: "ASIANPAINTS",
-    quantity: 4,
-    orderDate: '',
-    transactionDate: '',
-    exgPrice: 0,
-    totalInvestment: 876.00,
-    type: '',
-    percentChange: -2.37,
-    priceChange: -20.78,
-  }]
+  portfolio: Stock[] = []
 
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService) { }
 
@@ -96,6 +26,6 @@ export class PortfolioService {
     return this.portfolio;
   }
   getStocks():Observable<any> {
-      return this.http.get(PORTFOLIO_API + 'Stocks', this.httpOptions);
+      return this.http.get(PORTFOLIO_API + 'Stocks/224', this.httpOptions);
   }
 }
