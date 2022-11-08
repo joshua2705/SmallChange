@@ -7,7 +7,7 @@
   <p>Balance available</p>
   <span class="amount">
     <i class="material-icons">attach_money</i>
-    <h1>200.00</h1>
+    <h1>{{balance}}</h1>
   </span>
 </mat-dialog-content>
 
@@ -34,12 +34,12 @@
     <div  class="deposit">
       <p>Enter Amount</p>
       <mat-form-field appearance="fill" floatLabel="always">
-        <input matInput type="number" class="example-right-align" placeholder="0">
+        <input matInput #amountValue type="number" class="example-right-align" placeholder="0">
         <span matPrefix>$&nbsp;</span>
         <span matSuffix>.00</span>
       </mat-form-field>
     </div>
-    <button>WITHDRAW MONEY</button>
+    <button (click)="withdrawMoney(amountValue.value)">WITHDRAW MONEY</button>
   </mat-tab>
   </mat-tab-group>
 </mat-dialog-content>
