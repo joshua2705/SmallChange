@@ -17,7 +17,7 @@
     animationDuration="500ms"
     mat-stretch-tabs
   >
-    <mat-tab label="Stocks" >
+    <mat-tab label="Stocks" *ngIf = "calculated == true">
       <ng-template matTabContent>
         <div class="overview">
           <mat-card id="card-overview">
@@ -44,32 +44,32 @@
         </div>
 
         <div class="container">
-          <mat-card *ngFor="let stock of obs | async">
+          <mat-card *ngFor="let stock of portfolio ">
             <div>
               <mat-card-subtitle>
                 <p class="values">{{ stock.quantity }} &nbsp;</p>
                 <p>Qty</p>
               </mat-card-subtitle>
-              <mat-card-title>{{ stock.symbol }}</mat-card-title>
+              <mat-card-title>{{ stock.name }}</mat-card-title> 
               <br />
               <mat-card-subtitle>
                 <p>Invested &nbsp;</p>
                 <p class="values">
-                  {{ stock.totalInvestment | number: ".2-2" }}
+                  {{ stock.purchasePrice | number: ".2-2" }}
                 </p></mat-card-subtitle
               >
             </div>
             <div>
-              <p [style.color]="stock.percentChange > 0 ? 'green' : 'red'">
-                {{ stock.percentChange > 0 ? "+" : ""
-                }}{{ stock.percentChange }}%
+              <p [style.color]="stock.gainPercentage > 0 ? 'green' : 'red'">
+                {{ stock.gainPercentage > 0 ? "+" : ""
+                }}{{ stock.gainPercentage }}%
               </p>
               <p
                 id="price"
-                [style.color]="stock.priceChange > 0 ? 'green' : 'red'"
+                [style.color]="stock.gainValue > 0 ? 'green' : 'red'"
               >
-                {{ stock.priceChange > 0 ? "+" : ""
-                }}{{ stock.priceChange | currency: "USD":true:".2-2" }}
+                {{ stock.gainValue > 0 ? "+" : ""
+                }}{{ stock.gainValue | currency: "USD":true:".2-2" }}
               </p>
             </div>
           </mat-card>
