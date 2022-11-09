@@ -18,7 +18,7 @@
     mat-stretch-tabs
   >
     <mat-tab label="Stocks" >
-      <ng-template *ngIf = "calculated" matTabContent>
+      <ng-template  matTabContent>
         <div class="overview">
           <mat-card id="card-overview">
             <div class="acc_overview">
@@ -50,7 +50,7 @@
                 <p class="values">{{ stock.quantity }} &nbsp;</p>
                 <p>Qty</p>
               </mat-card-subtitle>
-              <mat-card-title>{{ stock.name }}</mat-card-title> 
+              <mat-card-title>{{ stock.name }}</mat-card-title>
               <br />
               <mat-card-subtitle>
                 <p>Invested &nbsp;</p>

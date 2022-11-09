@@ -32,7 +32,7 @@ export class TradingComponent implements OnInit {
   obs1!: Observable<Stock[]>;
 
   toggleFlag:boolean = true
-  
+
   obs!: Observable<GlobalStock[]>;
   displayedColumns: string[] = ['ticker', 'price','gainPercentage','marketCap','volume'];
   dataSource: any = null;
@@ -47,10 +47,10 @@ export class TradingComponent implements OnInit {
     private tokenStorage: TokenStorageService) { }
 
 
-  
+
   @ViewChild(MatPaginator)paginator!: MatPaginator;
 
-  
+
   ngOnInit(): void {
     this.tradeSer.getGlobalStocks().subscribe(
       data => {
@@ -59,18 +59,18 @@ export class TradingComponent implements OnInit {
         this.obs = this.dataSource.connect();
       }
     );
-    this.walletService.getBalance().subscribe(
+    this.walletService.getBalance(this.tokenStorage.getUser().id).subscribe(
       data => {
         this.balance = data.balance;
       }
     );
-    this.portfolioService.getStocks().subscribe(
+    this.portfolioService.getStocks(this.tokenStorage.getUser().id).subscribe(
       data => {
         this.portfolio = data;
       }
     )
-   
-  
+
+
   }
 
   valid: boolean = false;
@@ -86,7 +86,7 @@ export class TradingComponent implements OnInit {
       this.inputAmount =  event?.target?.value;
    // this.amountString = event;
     }
-    
+
     if(this.balance < this.inputAmount){
       this.valid = false;
     }
@@ -111,57 +111,60 @@ export class TradingComponent implements OnInit {
       console.log(dateOfBirth);
       let body1 = new trade(-1,this.tokenStorage.getUser().id,this.selectedStock.id,
       "BUY", this.inputAmount/this.selectedStock.price, this.inputAmount, dateOfBirth );
-    
+
     this.tradeSer.buyStock(body1).subscribe(
       data => {
-        
+
       }
     );
     }
   }
 
   callSellTrade(){
-    
-   
-    
+
+
+
       let purhaseCurrentDate = new Date();
       const date = purhaseCurrentDate.getDate();
       const month = purhaseCurrentDate.getMonth() + 1;
       const year = purhaseCurrentDate.getFullYear();
       const currentDate = `${year}-${month}-${date}`;
-      
+
       let postInput = new trade(-1,this.tokenStorage.getUser().id,this.selectedStock.id,
       "SEL", this.selectedQuantity, this.selectedStock.price, currentDate );
-    
+
     this.tradeSer.sellStock(postInput).subscribe(
       data => {
-        
+
       }
     );
-    
+
   }
   selectedQuantity: number=0;
   selectedCurrentValue: number = 0;
-  
+
   open(content:any, stock:GlobalStock) {
     this.selectedCurrentValue = 0;
     this.selectedQuantity = 0;
     this.selectedStock = stock;
-    this.portfolio.forEach((value: Stock, ind: number) => {
+    if(this.portfolio!=null) {
+      this.portfolio.forEach((value: Stock, ind: number) => {
         if(this.selectedStock.id == value.tickerId){
             this.selectedQuantity = value.quantity;
             this.selectedCurrentValue = value.quantity * this.selectedStock.price;
         }
     });
-    
-    
+
+    }
+
+
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
-  
+
   openBuyModal(buymodal:any){
       this.modalService.open(buymodal, {ariaLabelledBy: 'buy-modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

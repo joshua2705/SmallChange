@@ -5,8 +5,7 @@ import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
-
-
+import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -24,16 +23,16 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
 
   toggleFlag: boolean = true;
 
-  dataSource = new MatTableDataSource<Stock>(this.portfolioService.getPortFolio());
+  dataSource = new MatTableDataSource<Stock>([]);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   searchTerm: string = '';
   calculated: boolean = false;
 
-  constructor(private portfolioService: PortfolioService) { }
+  constructor(private portfolioService: PortfolioService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
     this.obs = this.dataSource.connect();
-    this.portfolioService.getStocks().subscribe(
+    this.portfolioService.getStocks(this.tokenStorage.getUser().id).subscribe(
       data => {
         this.portfolio = data;
         console.log(data);
