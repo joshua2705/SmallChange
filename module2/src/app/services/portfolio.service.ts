@@ -25,7 +25,7 @@ export class PortfolioService {
   getPortFolio(): any {
     return this.portfolio;
   }
-  getStocks():Observable<any> {
-      return this.http.get(PORTFOLIO_API + 'Stocks/224', this.httpOptions);
+  getStocks():Observable<Stock[]> {
+      return this.http.get<Stock[]>(PORTFOLIO_API + 'Stocks/' + this.tokenStorage.getUser().id, this.httpOptions);
   }
 }
