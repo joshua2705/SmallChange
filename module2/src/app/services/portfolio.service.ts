@@ -22,6 +22,7 @@ export class PortfolioService {
     .set('Content-Type','application/json')
     .set('Authorization', `Bearer `+ this.tokenStorage.getToken())
   };
+  
   getPortFolio(): any {
     return this.portfolio;
   }
