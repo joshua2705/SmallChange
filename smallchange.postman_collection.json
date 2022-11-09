@@ -1,0 +1,492 @@
+{
+	"info": {
+		"_postman_id": "6c68553c-b165-4cd4-baca-c439e34c6ae5",
+		"name": "smallchange",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UserId",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "check",
+						"value": "hi",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/user/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "111"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBonds",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/position/Bonds",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"position",
+						"Bonds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMutualFunds",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWtzaHUyQGdtYWlsLmNvbSIsInVzZXJfZGV0YWlscyI6eyJpZCI6MjI0LCJ1c2VybmFtZSI6InJha3NodSIsImVtYWlsIjoicmFrc2h1MkBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiVVNFUiJ9XSwiZW5hYmxlZCI6dHJ1ZSwiY3JlZGVudGlhbHNOb25FeHBpcmVkIjp0cnVlLCJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZX0sImlhdCI6MTY2NzQ2NzE1MiwiZXhwIjoxNjY3NDc3MTUyfQ.EtKBR1XlsK11DONtTz0epucQUmvgOiZPTbtQvq40CTQ",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/position/MutualFunds/:userId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"position",
+						"MutualFunds",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "224"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getStocks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWtzaHUyQGdtYWlsLmNvbSIsInVzZXJfZGV0YWlscyI6eyJpZCI6MjI0LCJ1c2VybmFtZSI6InJha3NodSIsImVtYWlsIjoicmFrc2h1MkBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiVVNFUiJ9XSwiZW5hYmxlZCI6dHJ1ZSwiYWNjb3VudE5vbkV4cGlyZWQiOnRydWUsImNyZWRlbnRpYWxzTm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZX0sImlhdCI6MTY2Nzg5MzA4NiwiZXhwIjoxNjY3OTkzMDg2fQ.Js2-9T_Z5NKEi_McZltevUb4NFot0gUu0VTDQM_WLIA",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/smallchange/position/Stocks/:userId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"smallchange",
+						"position",
+						"Stocks",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "224"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegisterUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"user_id\": null,\r\n    \"user_name\": \"Sasmithaa\",\r\n    \"user_email\": \"sasmithaasrinivasan@gmail.com\",\r\n    \"user_password\": \"asd\",\r\n    \"user_dob\": \"2001-03-25\",\r\n    \"user_phoneno\": \"7899123456\" ,\r\n    \"user_accountid\": \"as345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/register/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"register",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BuyTrade",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tradeId\": null,\r\n    \"userId\": 223,\r\n    \"ticker\": \"101\",\r\n    \"tradeType\":\"BUY\",\r\n    \"quantity\":3,\r\n    \"purchasePrice\":15,\r\n    \"purchaseDate\":\"2021-03-02\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/buy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addPositions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"userId\": 222,\r\n    \"purchasePrice\":100.34,\r\n    \"ticker\": \"101\",\r\n    \"quantity\":3\r\n    \r\n   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/register/positions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"register",
+						"positions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"rakshu\",\r\n    \"email\":\"rakshu2@gmail.com\",\r\n    \"password\":\"rakshitha\",\r\n    \"phoneNumber\":\"1234567890\",\r\n    \"dob\":\"2000-05-08\",\r\n    \"role\":[\"USER\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWtzaHUiLCJ1c2VyX2RldGFpbHMiOnsidXNlcl9pZCI6MTAwLCJ1c2VyX25hbWUiOiJyYWtzaHUiLCJ1c2VyX2VtYWlsIjoicmFrc2h1MkBnbWFpbC5jb20iLCJ1c2VyX3Bhc3N3b3JkIjoiJDJhJDEwJDZUYXo0Nm1VTG0ucWV3VjUxTkxSNGU2S3RUUndHalFHN2xiS2ZUMm5XaXNSREZLcnhTUHlDIiwidXNlcl9waG9uZW5vIjoiMTIzNDU2Nzg5MCIsInVzZXJfZG9iIjoiMjAwMC0wNS0wOCJ9LCJpYXQiOjE2Njc0NTgwNDEsImV4cCI6MTY2NzQ2ODA0MX0.1w688lQeQCzK6XO0thKBVv0lbR5EAKUfGg_fdOg3UX8",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"rakshu2@gmail.com\",\r\n    \"password\": \"rakshitha\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "allStocks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWtzaHUyQGdtYWlsLmNvbSIsInVzZXJfZGV0YWlscyI6eyJpZCI6MjI0LCJ1c2VybmFtZSI6InJha3NodSIsImVtYWlsIjoicmFrc2h1MkBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiVVNFUiJ9XSwiZW5hYmxlZCI6dHJ1ZSwiY3JlZGVudGlhbHNOb25FeHBpcmVkIjp0cnVlLCJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZX0sImlhdCI6MTY2NzQ3MDg4NiwiZXhwIjoxNjY3NDgwODg2fQ.gnbj9TvAtsjp1_1TxGHcMcY29El7Y1i-3ZCS1-LnZ4E",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/allStocks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"allStocks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "allMutualFunds",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/allMutualFunds",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"allMutualFunds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "allBonds",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWtzaHUyQGdtYWlsLmNvbSIsInVzZXJfZGV0YWlscyI6eyJpZCI6MjI0LCJ1c2VybmFtZSI6InJha3NodSIsImVtYWlsIjoicmFrc2h1MkBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiVVNFUiJ9XSwiZW5hYmxlZCI6dHJ1ZSwiY3JlZGVudGlhbHNOb25FeHBpcmVkIjp0cnVlLCJhY2NvdW50Tm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZX0sImlhdCI6MTY2NzQ2ODIxMiwiZXhwIjoxNjY3NDc4MjEyfQ.63_l0iY2jfIpHNZz2bIOtLdo9hGasuDsiI59OG8ZI2I",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/allBonds",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"allBonds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getWallet",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWtzaHUyQGdtYWlsLmNvbSIsInVzZXJfZGV0YWlscyI6eyJpZCI6MjI0LCJ1c2VybmFtZSI6InJha3NodSIsImVtYWlsIjoicmFrc2h1MkBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiVVNFUiJ9XSwiZW5hYmxlZCI6dHJ1ZSwiYWNjb3VudE5vbkV4cGlyZWQiOnRydWUsImNyZWRlbnRpYWxzTm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZX0sImlhdCI6MTY2Nzg4ODI4OCwiZXhwIjoxNjY3ODk4Mjg4fQ.hZBdW1a0C3pfFWlzjjDdKaHpMcTaox4fTwECalvEC3w",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/getWallet/:userId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getWallet",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "224"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateWallet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWtzaHUyQGdtYWlsLmNvbSIsInVzZXJfZGV0YWlscyI6eyJpZCI6MjI0LCJ1c2VybmFtZSI6InJha3NodSIsImVtYWlsIjoicmFrc2h1MkBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiVVNFUiJ9XSwiZW5hYmxlZCI6dHJ1ZSwiYWNjb3VudE5vbkV4cGlyZWQiOnRydWUsImNyZWRlbnRpYWxzTm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZX0sImlhdCI6MTY2Nzg4ODg5NywiZXhwIjoxNjY3ODk4ODk3fQ.AYsu0Lu3loKWn7neYmC9PhqHyxk_72YMCEzBr5udSSg",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/updateWallet/:userId/:amount",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"updateWallet",
+						":userId",
+						":amount"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "224"
+						},
+						{
+							"key": "amount",
+							"value": "60000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "allBonds Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWtzaHUyQGdtYWlsLmNvbSIsInVzZXJfZGV0YWlscyI6eyJpZCI6MjI0LCJ1c2VybmFtZSI6InJha3NodSIsImVtYWlsIjoicmFrc2h1MkBnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiVVNFUiJ9XSwiZW5hYmxlZCI6dHJ1ZSwiYWNjb3VudE5vbkV4cGlyZWQiOnRydWUsImNyZWRlbnRpYWxzTm9uRXhwaXJlZCI6dHJ1ZSwiYWNjb3VudE5vbkxvY2tlZCI6dHJ1ZX0sImlhdCI6MTY2NzgzNzMzNCwiZXhwIjoxNjY3ODQ3MzM0fQ.YSessM20ZgKTIVn3v1gn2a2kb5LTU7l-aSIDVu0IBDU",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/tradeHistory/:userid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tradeHistory",
+						":userid"
+					],
+					"variable": [
+						{
+							"key": "userid",
+							"value": "224"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

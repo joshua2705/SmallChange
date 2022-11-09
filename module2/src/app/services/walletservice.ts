@@ -11,9 +11,6 @@ const PORTFOLIO_API = 'http://localhost:8080/api/';
 })
 export class WalletService {
 
-  
- 
-
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService) {}
 
   private httpOptions = {
@@ -22,21 +19,21 @@ export class WalletService {
     .set('Authorization', `Bearer `+ this.tokenStorage.getToken())
   };
 
-  getBalance(): Observable<any> {
+  getBalance(userId:number): Observable<any> {
     //this.tokenStorage.getUser().id;
-    return this.http.get(PORTFOLIO_API +"getWallet/"+ this.tokenStorage.getUser().id, this.httpOptions);
-    
+    return this.http.get(PORTFOLIO_API +"getWallet/"+userId, this.httpOptions);
+
   }
 
-  updateBalance(value: number): Observable<any>{
+  updateBalance(value: number, userId:number): Observable<any>{
     console.log(value+" servie");
     //var dummy: Observable<any>;
     return this.http.put(PORTFOLIO_API+"updateWallet/"+
-    this.tokenStorage.getUser().id + "/"+ value, this.httpOptions);
+    userId + "/"+ value, this.httpOptions);
     //return dummy;
   }
 
-  
+
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
