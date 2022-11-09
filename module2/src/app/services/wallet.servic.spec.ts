@@ -6,7 +6,7 @@ import { Stock } from '../models/stock';
 import { WalletService } from './walletservice';
 import { HttpHeaders } from '@angular/common/http';
 
-describe('PortfolioService', () => {
+describe('WalletService', () => {
   let service: WalletService;
   let httpTestingController: HttpTestingController;
   const testWallet:any[] = [{accountid : "123",
@@ -46,7 +46,7 @@ describe('PortfolioService', () => {
     expect(wallet[0].balance).toBe(100);
    })));
 
-   xit('should update balance', inject([WalletService],
+   it('should update balance', inject([WalletService],
     fakeAsync((service: WalletService) => {
     let wallet: any= [];
     let userId = 1;
