@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from '../services/token-storage.service';
 import { WalletService } from '../services/walletservice';
 
 @Component({
@@ -11,7 +12,7 @@ export class WalletComponent implements OnInit {
   investedAmount: number = - 1;
 
   constructor(
-    private walletService: WalletService
+    private walletService: WalletService, private tokenStorage: TokenStorageService
   ) { }
 
   ngOnInit(): void {
@@ -19,7 +20,7 @@ export class WalletComponent implements OnInit {
   }
 
   getBalance(){
-    this.walletService.getBalance().subscribe(
+    this.walletService.getBalance(this.tokenStorage.getUser().id).subscribe(
       data => {
         console.log(data.balance);
         this.balance = data.balance;
@@ -36,7 +37,7 @@ export class WalletComponent implements OnInit {
     if (this.balance >= value){
       let valueNew = this.balance - value;
       console.log(valueNew);
-      this.walletService.updateBalance(valueNew).subscribe(
+      this.walletService.updateBalance(valueNew, this.tokenStorage.getUser().id).subscribe(
         data => {
           this.getBalance();
         },
@@ -49,7 +50,7 @@ export class WalletComponent implements OnInit {
     else{
       alert("balance is less than withdraw amount")
     }
-    
+
 
   }
 
@@ -59,18 +60,18 @@ export class WalletComponent implements OnInit {
     if (true){
       let valueNew = this.balance + value;
       console.log(valueNew);
-      this.walletService.updateBalance(valueNew).subscribe(
+      this.walletService.updateBalance(valueNew, this.tokenStorage.getUser().id).subscribe(
         data => {
           this.getBalance();
         },
         error => {
-          
+
         }
       );
 
     }
-   
-    
+
+
 
   }
 
