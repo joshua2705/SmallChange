@@ -19,7 +19,7 @@ export class WalletService {
   private httpOptions = {
     headers: new HttpHeaders()
     .set('Content-Type','application/json')
-    //.set('Authorization', `Bearer `+ this.tokenStorage.getToken())
+    .set('Authorization', `Bearer `+ this.tokenStorage.getToken())
   };
 
   getBalance(): Observable<any> {

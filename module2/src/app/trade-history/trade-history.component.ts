@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import {MatSort, Sort} from '@angular/material/sort';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import { trade } from '../models/trade';
+import { TokenStorageService } from '../services/token-storage.service';
 
 
 @Component({
@@ -35,10 +36,11 @@ export class TradeHistoryComponent implements OnInit {
   toggleFlag:boolean = true;
 
 
-  constructor(private historyService: ActivityService, private _liveAnnouncer: LiveAnnouncer) {}
+  constructor(private historyService: ActivityService, private _liveAnnouncer: LiveAnnouncer,
+    private tokenStorage: TokenStorageService) {}
 
   getTradeHistory(){
-    this.historyService.getTradeHistory().subscribe(
+    this.historyService.getTradeHistory(this.tokenStorage.getUser().id).subscribe(
       data => {
         console.log(data);
         this.tradedList = data;

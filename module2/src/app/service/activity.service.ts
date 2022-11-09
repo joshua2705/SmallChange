@@ -22,9 +22,9 @@ export class ActivityService {
     .set('Authorization', `Bearer `+ this.tokenStorage.getToken())
   };
 
-  getTradeHistory(): Observable<any> {
+  getTradeHistory(userId: number): Observable<any> {
     //this.tokenStorage.getUser().id;
-    return this.http.get(PORTFOLIO_API + this.tokenStorage.getUser().id, this.httpOptions);
+    return this.http.get(PORTFOLIO_API + userId, this.httpOptions);
     
   }
 }
