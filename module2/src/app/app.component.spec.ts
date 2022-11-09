@@ -26,10 +26,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('module2');
   });
 
-  xit('should render title', () => {
+  it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('module2 app is running!');
+    expect(compiled.querySelector('header-bar')).toBeTruthy();
   });
 });
