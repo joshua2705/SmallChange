@@ -18,8 +18,8 @@
     mat-stretch-tabs
   >
     <mat-tab label="Stocks" >
-      <ng-template *ngIf = "calculated" matTabContent>
-        <div class="overview">
+      <ng-template matTabContent>
+        <div class="overview" *ngIf="portfolio">
           <mat-card id="card-overview">
             <div class="acc_overview">
               <mat-card-subtitle>Invested</mat-card-subtitle>
@@ -43,7 +43,7 @@
           </mat-card>
         </div>
 
-        <div class="container">
+        <div class="container" *ngIf="portfolio">
           <mat-card *ngFor="let stock of portfolio ">
             <div>
               <mat-card-subtitle>
@@ -80,10 +80,10 @@
           >
           </mat-paginator>
         </div>
-      </ng-template>
-      <mat-card id="card-overview" class="no-stocks" *ngIf="!calculated">
+        <mat-card id="card-overview" class="no-stocks" *ngIf="!portfolio">
           <mat-card-title>How about we buy some stocks</mat-card-title>
-      </mat-card>
+        </mat-card>
+      </ng-template>
     </mat-tab>
 
     <mat-tab label="Mutual Funds"> Content 2 </mat-tab>

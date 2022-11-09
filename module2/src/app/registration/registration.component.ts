@@ -12,6 +12,7 @@ import { NotifierService } from 'angular-notifier';
 import { TokenStorageService } from '../services/token-storage.service';
 import { Router } from '@angular/router';
 import { datePickerValidator } from './validation';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register-form',
@@ -30,6 +31,7 @@ export class RegisterFormComponent implements OnInit {
     private authService: AuthService,
     notifierService: NotifierService,
     private tokenStorage: TokenStorageService,
+    private _snackBar: MatSnackBar,
     private router: Router
   ) {
     this.notifier = notifierService;
@@ -139,12 +141,14 @@ export class RegisterFormComponent implements OnInit {
           this.tokenStorage.saveToken(data.accessToken);
           this.tokenStorage.saveUser(data);
           this.notifier.notify('success', data.message);
-          this.router.navigate(['portfolio']);
+          this._snackBar.open("Registration Successful","",{duration:3000});
+          this.router.navigate(['login']);
         },
         error: (err) => {
           console.log(err);
           this.errorMessage = err.error.message;
           this.notifier.notify('success', this.errorMessage);
+          this._snackBar.open("Registration Failed try again","",{duration:3000});
           this.isSignUpFailed = true;
         },
       });
