@@ -6,6 +6,7 @@ import { ActivityService } from '../service/activity.service';
 import { TradeHistoryComponent } from './trade-history.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
+import { Stock } from '../models/stock';
 
 
 
@@ -13,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 describe('TradeHistoryComponent', () => {
   let component: TradeHistoryComponent;
   let fixture: ComponentFixture<TradeHistoryComponent>;
-  let httpClient: HttpClient;
+  
   const mockStock: trade[] = [{"tradeId":1, "userId": 1, "tickerid": "S01", "tradeType":"Buy","quantity":1,
   "purchasePrice":20, "purchaseDate":"23-08-2021"}]
   let getTradeHistorySpy: any;
