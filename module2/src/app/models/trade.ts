@@ -3,10 +3,10 @@ export class trade{
 
         public tradeId: number,
         public userId:number,
-        public ticker: string,
+        public tickerid: string,
         public tradeType: string, 
         public quantity: number,
         public purchasePrice: number,
-        public purhchaseDate: string
+        public purchaseDate: string
     ){};
 }

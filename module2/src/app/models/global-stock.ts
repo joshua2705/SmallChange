@@ -1,9 +1,12 @@
 export class GlobalStock {
     constructor(
-        public symbol: string, 
-        public name: string, 
-        public marketCap: number,
+        public id: string, 
+        public ticker: string, 
         public price: number, 
-        public gain: number )
+        public gainPercentage: number,
+        public marketCap: number,
+        public volume: number
+        
+         )
         { }
 }

@@ -94,7 +94,7 @@ export class TradeHistoryComponent implements OnInit {
         case 'tradeid':
           return compare(a.tradeId, b.tradeId, isAsc);
         case 'tickerid':
-          return compare(a.ticker, b.ticker, isAsc);
+          return compare(a.tickerid, b.tickerid, isAsc);
         case 'tradetype':
           return compare(a.tradeType, b.tradeType, isAsc);
         case 'quantity':
@@ -102,7 +102,7 @@ export class TradeHistoryComponent implements OnInit {
         case 'purchaseprice':
           return compare(a.purchasePrice, b.purchasePrice, isAsc);
         case 'purchasedate':
-          return compare(a.purhchaseDate, b.purhchaseDate, isAsc);
+          return compare(a.purchaseDate, b.purchaseDate, isAsc);
         default:
           return 0;
       }

@@ -7,8 +7,8 @@
     <app-table-header></app-table-header>
     <mat-card class="row" *ngFor="let stock of obs | async "  (click)="open(content,stock)">
       <div class="col">
-        <mat-card-title><p class="values">{{ stock.symbol }} &nbsp;</p></mat-card-title>
-        <mat-card-subtitle>{{ stock.name }}</mat-card-subtitle>
+        <mat-card-title><p class="values">{{ stock.ticker }} &nbsp;</p></mat-card-title>
+        <mat-card-subtitle>{{ stock.id}}</mat-card-subtitle>
         <br />
       </div>
       <div class="col">
@@ -21,8 +21,8 @@
         <p>{{stock.price}}</p>
       </div>
       <div class="col">
-        <p [style.color]="stock.gain > 0 ? 'green' : 'red'">
-          {{ stock.gain > 0 ? "+" : "" }}{{ stock.gain }}%
+        <p [style.color]="stock.gainPercentage > 0 ? 'green' : 'red'">
+          {{ stock.gainPercentage > 0 ? "+" : "" }}{{ stock.gainPercentage }}%
         </p>
       </div>
     </mat-card>
@@ -39,11 +39,11 @@
     <ng-template #content let-modal>
         <div class="modal-header">
           <div>
-            <span class="modal-title" id="modal-basic-title">{{selectedStock.symbol}} </span>
-            <span [style.color]="selectedStock.gain > 0 ? 'green' : 'red'">
-              {{ selectedStock.gain > 0 ? "+" : "" }}{{ selectedStock.gain }}%
+            <span class="modal-title" id="modal-basic-title">{{selectedStock.ticker}} </span>
+            <span [style.color]="selectedStock.gainPercentage > 0 ? 'green' : 'red'">
+              {{ selectedStock.gainPercentage > 0 ? "+" : "" }}{{ selectedStock.gainPercentage }}%
             </span>
-            <h4 class="modal-title">{{selectedStock.name}}</h4>
+            <h4 class="modal-title">{{selectedStock.id}}</h4>
           </div>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
@@ -57,24 +57,24 @@
         <div class="information-cards-container">
           <div class="information-cards-row">
             <mat-card class="information-cards">
-              <mat-card-subtitle>{{selectedStock.symbol}} Balance</mat-card-subtitle>
-              <mat-card-content>45.20</mat-card-content>
+              <mat-card-subtitle>{{selectedStock.ticker}} Balance</mat-card-subtitle>
+              <mat-card-content>{{selectedQuantity}}</mat-card-content>
             </mat-card>
             <mat-card class="information-cards">
               <mat-card-subtitle>Current Value</mat-card-subtitle>
-              <mat-card-content>76348.98</mat-card-content>
+              <mat-card-content>{{selectedCurrentValue}}</mat-card-content>
             </mat-card>
           </div>
           <div class="information-cards-row">
             <mat-card class="information-cards">
               <mat-card-subtitle>Buy Power</mat-card-subtitle>
-              <mat-card-content>35000</mat-card-content>
+              <mat-card-content>{{balance}}</mat-card-content>
             </mat-card>
             <mat-card class="information-cards">
-              <mat-card-subtitle>Gain </mat-card-subtitle>
+              <mat-card-subtitle>Gain     </mat-card-subtitle>
               <mat-card-content>
-                <span [style.color]="selectedStock.gain > 0 ? 'green' : 'red'">
-                      {{ selectedStock.gain > 0 ? "+" : "" }}{{ selectedStock.gain }}%
+                <span [style.color]="selectedStock.gainPercentage > 0 ? 'green' : 'red'">
+                      {{ selectedStock.gainPercentage > 0 ? "+" : "" }}{{ selectedStock.gainPercentage }}%
                 </span>
               </mat-card-content>
             </mat-card>
@@ -84,7 +84,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-success buy-btn" 
                 (click)="modal.close('Buy click'); openBuyModal(buymodal)">Buy</button>
-          <button type="button" class="btn btn-success sell-btn" 
+          <button *ngIf="selectedQuantity" type="button" class="btn btn-success sell-btn" 
                 (click)="modal.close('Sell click'); openSellModal(sellmodal)">Sell</button>
         </div>
       </ng-template>
@@ -94,8 +94,8 @@
   <ng-template #buymodal let-modal>
       <div class="modal-header">
         <div>
-          <span class="modal-title" id="buy-modal-basic-title">{{selectedStock.symbol}} </span>
-          <h4 class="modal-title">{{selectedStock.name}}</h4>
+          <span class="modal-title" id="buy-modal-basic-title">{{selectedStock.ticker}} </span>
+          <h4 class="modal-title">{{selectedStock.id}}</h4>
         </div>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
           <span aria-hidden="true">&times;</span>
@@ -105,10 +105,12 @@
       <div class="container">
         <form class="buy-form">
           <mat-card-title>USD</mat-card-title>
-          <mat-card-subtitle>Buy power: $35000</mat-card-subtitle>
+          <mat-card-subtitle>Buy power: {{balance}}</mat-card-subtitle>
           <mat-form-field class="buy-form-field" appearance="fill">
             <mat-label>Amount</mat-label>
-            <input type="number" matInput placeholder="0" (focus)="showPrefix()" (blur)="hidePrefix()" >
+            
+            <input matInput  type="number" #buyValue  (keyup)="validateBuy($event)"
+             placeholder="0" (focus)="showPrefix()" (blur)="hidePrefix()" >
             <span *ngIf="prefix" matPrefix>$&nbsp;</span>
           </mat-form-field>
         </form>
@@ -116,7 +118,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn proceed-buy-btn" 
-              (click)="modal.close('Buy click'); boughtToast()">Proceed Buy</button>
+              (click)="modal.close('Buy click'); callService()">Proceed Buy</button>
       </div>
     </ng-template>
 </section>
@@ -126,8 +128,8 @@
   <ng-template #sellmodal let-modal>
       <div class="modal-header">
         <div>
-          <span class="modal-title" id="sell-modal-basic-title">{{selectedStock.symbol}} </span>
-          <h4 class="modal-title">{{selectedStock.name}}</h4>
+          <span class="modal-title" id="sell-modal-basic-title">{{selectedStock.ticker}} </span>
+          <h4 class="modal-title">{{selectedStock.id}}</h4>
         </div>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
           <span aria-hidden="true">&times;</span>
@@ -137,7 +139,7 @@
       <div class="container">
         <mat-card>
           <mat-card-title>Selling USD</mat-card-title>
-          <mat-card-subtitle>$35000</mat-card-subtitle>
+          <mat-card-subtitle>{{balance}}</mat-card-subtitle>
         </mat-card>
         <mat-card>
           <mat-card-title>Shares</mat-card-title>
@@ -147,7 +149,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn proceed-buy-btn" 
-              (click)="modal.close('Buy click'); soldToast()">Proceed Sell</button>
+              (click)="modal.close('Buy click'); callSellTrade(); soldToast()">Proceed Sell</button>
       </div>
     </ng-template>
 </section>

@@ -32,6 +32,45 @@ export class WalletComponent implements OnInit {
 
   withdrawMoney(value: any){
     console.log(value);
+    value = Number(value);
+    if (this.balance >= value){
+      let valueNew = this.balance - value;
+      console.log(valueNew);
+      this.walletService.updateBalance(valueNew).subscribe(
+        data => {
+          this.getBalance();
+        },
+        error => {
+
+        }
+      );
+
+    }
+    else{
+      alert("balance is less than withdraw amount")
+    }
+    
+
+  }
+
+  depositMoney(value: any){
+    console.log(value);
+    value = Number(value);
+    if (true){
+      let valueNew = this.balance + value;
+      console.log(valueNew);
+      this.walletService.updateBalance(valueNew).subscribe(
+        data => {
+          this.getBalance();
+        },
+        error => {
+          
+        }
+      );
+
+    }
+   
+    
 
   }
 
