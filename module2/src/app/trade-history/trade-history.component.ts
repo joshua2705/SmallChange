@@ -17,15 +17,11 @@ import { TokenStorageService } from '../services/token-storage.service';
 })
 export class TradeHistoryComponent implements OnInit {
 
-
- 
-
-  
   stocks: trade[] = [];
   astocks: trade[] = [];
   tradedList: trade[] = [];
   config: any;
-  displayedColumns: string[] = ['tradeid', 'tickerid','tradeType','quantity', 'purchaseprice','purchasedate'];
+  displayedColumns: string[] = ['tradeId', 'tickerid','tradeType','quantity', 'purchasePrice','purchaseDate'];
   dataSource: any = null;
   @ViewChild(MatPaginator)paginator!: MatPaginator;
   @ViewChild(MatSort)
