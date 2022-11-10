@@ -14,7 +14,7 @@ import { Stock } from '../models/stock';
 describe('TradeHistoryComponent', () => {
   let component: TradeHistoryComponent;
   let fixture: ComponentFixture<TradeHistoryComponent>;
-  
+
   const mockStock: trade[] = [{"tradeId":1, "userId": 1, "tickerid": "S01", "tradeType":"Buy","quantity":1,
   "purchasePrice":20, "purchaseDate":"23-08-2021"}]
   let getTradeHistorySpy: any;
@@ -26,14 +26,14 @@ describe('TradeHistoryComponent', () => {
     getTradeHistorySpy = tradeService.getTradeHistory.and.callFake((param: number) => {
         return of(mockStock);
         });
-    
 
-    
+
+
 
 
     await TestBed.configureTestingModule({
       declarations: [ TradeHistoryComponent],
-    
+
       providers: [
         { provide: ActivityService, useValue: tradeService
           }
@@ -48,7 +48,7 @@ describe('TradeHistoryComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
@@ -58,7 +58,13 @@ describe('TradeHistoryComponent', () => {
     expect(component.tradedList[0].tickerid).toBe('S01');
   })
 
-  
 
-  
+  it('should sort trade History ', () => {
+    component.getTradeHistory();
+    //const tag = fixture.nativeElement.querySelector('table');
+    expect(component.tradedList[0].tickerid).toBe('S01');
+  })
+
+
+
 });

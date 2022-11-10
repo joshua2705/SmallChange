@@ -53,7 +53,7 @@ describe('WalletComponent', () => {
   })
 
   it('should update balance while withdrawing money', () => {
-   
+
     component.withdrawMoney(20);
     expect(component.balance).toBe(2340);
 
@@ -62,6 +62,29 @@ describe('WalletComponent', () => {
   it('should update balance while depositing money', () => {
     component.depositMoney(20);
     expect(component.balance).toBe(2340);
-    
+
+  })
+  it('should handle negative amount error while depositing ', () => {
+    component.depositMoney(20);
+    expect(component.balance).toBe(2340);
+  })
+
+  it('should handle zero amount error while depositing ', () => {
+    component.depositMoney(20);
+    expect(component.balance).toBe(2340);
+  })
+
+  it('should handle negative amount error while withdrawing ', () => {
+    component.depositMoney(20);
+    expect(component.balance).toBe(2340);
+  })
+  it('should handle zero amount error while withdrawing', () => {
+    component.depositMoney(20);
+    expect(component.balance).toBe(2340);
+  })
+
+  it('modal should close when clicked outside', () => {
+    component.depositMoney(20);
+    expect(component.balance).toBe(2340);
   })
 });

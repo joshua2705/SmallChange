@@ -3,10 +3,10 @@ import { fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { AuthService } from './auth.service';
 
-describe('TradeService', () => {
+describe('AuthService', () => {
   let service: AuthService;
   let httpTestingController: HttpTestingController;
- 
+
 
   beforeEach(() => {
     TestBed.configureTestingModule({

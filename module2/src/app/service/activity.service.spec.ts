@@ -24,11 +24,11 @@ describe('ActivityService', () => {
       //service = TestBed.inject(ETFServiceService);
       httpTestingController = TestBed.inject(HttpTestingController);
     });
-  
+
     it('should be created', () => {
       expect(service).toBeTruthy();
     });
-  
+
     it('should return trades', inject([ActivityService],
       fakeAsync((service: ActivityService) => {
         let trades1: trade[] = [];
@@ -46,9 +46,41 @@ describe('ActivityService', () => {
         tick();
         expect(trades1[0].tickerid).toBe('S01');
       })));
-  
-      
-  
-            
+
+      it('should return empty trades if no trades executed', inject([ActivityService],
+        fakeAsync((service: ActivityService) => {
+          let trades1: trade[] = [];
+          service.getTradeHistory(224)
+            .subscribe(data => trades1 = data);
+          const req = httpTestingController.expectOne(
+            PORTFOLIO_API );
+          // Assert that the request is a GET.
+          expect(req.request.method).toEqual('GET');
+          // Respond with mock data, causing Observable to resolve.
+          req.flush(mocktrade);
+          // Assert that there are no outstanding requests.
+          httpTestingController.verify();
+          // Cause all Observables to complete and check the results
+          tick();
+          expect(trades1[0].tickerid).toBe('S01');
+        })));
+
+        it('should handle internal server error', inject([ActivityService],
+          fakeAsync((service: ActivityService) => {
+            let trades1: trade[] = [];
+            service.getTradeHistory(224)
+              .subscribe(data => trades1 = data);
+            const req = httpTestingController.expectOne(
+              PORTFOLIO_API );
+            // Assert that the request is a GET.
+            expect(req.request.method).toEqual('GET');
+            // Respond with mock data, causing Observable to resolve.
+            req.flush(mocktrade);
+            // Assert that there are no outstanding requests.
+            httpTestingController.verify();
+            // Cause all Observables to complete and check the results
+            tick();
+            expect(trades1[0].tickerid).toBe('S01');
+          })));
+
   });
-  

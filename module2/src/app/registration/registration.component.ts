@@ -26,15 +26,15 @@ export class RegisterFormComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  private readonly notifier: NotifierService;
+  // private readonly notifier: NotifierService;
   constructor(
     private authService: AuthService,
-    notifierService: NotifierService,
+    // notifierService: NotifierService,
     private tokenStorage: TokenStorageService,
     private _snackBar: MatSnackBar,
     private router: Router
   ) {
-    this.notifier = notifierService;
+    // this.notifier = notifierService;
   }
 
   ngOnInit(): void {
@@ -140,14 +140,14 @@ export class RegisterFormComponent implements OnInit {
           this.isSignUpFailed = false;
           this.tokenStorage.saveToken(data.accessToken);
           this.tokenStorage.saveUser(data);
-          this.notifier.notify('success', data.message);
+          // this.notifier.notify('success', data.message);
           this._snackBar.open("Registration Successful","",{duration:3000});
           this.router.navigate(['login']);
         },
         error: (err) => {
           console.log(err);
           this.errorMessage = err.error.message;
-          this.notifier.notify('success', this.errorMessage);
+          // this.notifier.notify('success', this.errorMessage);
           this._snackBar.open("Registration Failed try again","",{duration:3000});
           this.isSignUpFailed = true;
         },

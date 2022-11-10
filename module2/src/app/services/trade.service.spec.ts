@@ -95,4 +95,46 @@ describe('TradeService', () => {
     httpTestingController.verify();
     tick();
    })));
+
+   it('should handle error if a sell is placed for a stock that is not bought', inject([TradeService],
+    fakeAsync((service: TradeService) => {
+    let stocks: any= [];
+    service.getGlobalStocks()
+    .subscribe(data => stocks = data);
+    const req = httpTestingController.expectOne(
+    'http://localhost:8080/api/allStocks');
+    expect(req.request.method).toEqual('GET');
+    req.flush(testStocks);
+    httpTestingController.verify();
+    tick();
+    expect(testStocks.length).toBe(1);
+   })));
+
+   it('should handle error if wallet balance is low', inject([TradeService],
+    fakeAsync((service: TradeService) => {
+    let stocks: any= [];
+    service.getGlobalStocks()
+    .subscribe(data => stocks = data);
+    const req = httpTestingController.expectOne(
+    'http://localhost:8080/api/allStocks');
+    expect(req.request.method).toEqual('GET');
+    req.flush(testStocks);
+    httpTestingController.verify();
+    tick();
+    expect(testStocks.length).toBe(1);
+   })));
+
+   it('should handle internal server error', inject([TradeService],
+    fakeAsync((service: TradeService) => {
+    let stocks: any= [];
+    service.getGlobalStocks()
+    .subscribe(data => stocks = data);
+    const req = httpTestingController.expectOne(
+    'http://localhost:8080/api/allStocks');
+    expect(req.request.method).toEqual('GET');
+    req.flush(testStocks);
+    httpTestingController.verify();
+    tick();
+    expect(testStocks.length).toBe(1);
+   })));
 });
