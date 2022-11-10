@@ -40,6 +40,7 @@ export class WalletComponent implements OnInit {
       this.walletService.updateBalance(valueNew, this.tokenStorage.getUser().id).subscribe(
         data => {
           this.getBalance();
+          window.location.reload();
         },
         error => {
 
@@ -63,6 +64,7 @@ export class WalletComponent implements OnInit {
       this.walletService.updateBalance(valueNew, this.tokenStorage.getUser().id).subscribe(
         data => {
           this.getBalance();
+          window.location.reload();
         },
         error => {
 

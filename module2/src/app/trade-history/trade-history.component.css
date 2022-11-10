@@ -35,7 +35,7 @@ thead{
 
  /* Search Bar Styling */
  .searchBox{
-  width: 70%;
+  width: 50%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -50,7 +50,7 @@ input[type=text]{
   position: relative;
   top:0;
   /* left:50px; */
-  padding: 5px 10px 5px 50px;
+  padding: 5px 10px 5px 40px;
   width: 10px;
   color: #525252;
   text-transform: uppercase;

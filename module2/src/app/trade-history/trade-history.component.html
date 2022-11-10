@@ -2,34 +2,27 @@
 
 <div class="searchBox">
     <i class="material-icons"  (click)="openSearch()">search</i>
-    <input type="text" matInput placeholder="Search" id="listSearch" (keyup)="applyFilter($event)"  />
+    <input type="text" placeholder="Search" id="listSearch" (keyup)="applyFilter($event)"  />
 </div>
-
-
-
-
-
 
 <div class="example-container mat-elevation-z8">
 
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort >
   
       <!-- ID Column -->
-      <ng-container matColumnDef="tradeid">
-        <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number"> Trade Id </mat-header-cell>
+      <ng-container matColumnDef="tradeId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> trade Id </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.tradeId}} </mat-cell>
       </ng-container>
   
       <!-- Progress Column -->
       <ng-container matColumnDef="tickerid">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>tickerid </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Ticker Id </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.ticker}} </mat-cell>
       </ng-container>
   
-    
-  
       <ng-container matColumnDef="tradeType">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>tradetype </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Trade Type </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.tradeType}} </mat-cell>
       </ng-container>
 
@@ -38,12 +31,12 @@
         <mat-cell *matCellDef="let row"> {{row.quantity}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="purchaseprice">
+      <ng-container matColumnDef="purchasePrice">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Purchase Price </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.purchasePrice}} </mat-cell>
       </ng-container>
       
-      <ng-container matColumnDef="purchasedate">
+      <ng-container matColumnDef="purchaseDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Purchase Date </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.purchaseDate}} </mat-cell>
       </ng-container>
