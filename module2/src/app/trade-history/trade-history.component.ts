@@ -21,7 +21,7 @@ export class TradeHistoryComponent implements OnInit {
   astocks: trade[] = [];
   tradedList: trade[] = [];
   config: any;
-  displayedColumns: string[] = ['Trade Id', 'Ticker Id','Trade Type','Quantity', 'Purchase Price','Purchase Date'];
+  displayedColumns: string[] = ['tradeId', 'tickerid','tradeType','quantity', 'purchasePrice','purchaseDate'];
   dataSource: any = null;
   @ViewChild(MatPaginator)paginator!: MatPaginator;
   @ViewChild(MatSort)
@@ -89,7 +89,7 @@ export class TradeHistoryComponent implements OnInit {
     this.stocks = data.sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
-        case 'tradeid':
+        case 'trade Id':
           return compare(a.tradeId, b.tradeId, isAsc);
         case 'tickerid':
           return compare(a.tickerid, b.tickerid, isAsc);

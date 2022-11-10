@@ -5,4 +5,9 @@ describe('SearchPipe', () => {
     const pipe = new SearchPipe();
     expect(pipe).toBeTruthy();
   });
+
+    it('should return the search result', () => {
+      const pipe = new SearchPipe();
+      expect(pipe.transform('abc')).toEqual('abc');
+      });
 });

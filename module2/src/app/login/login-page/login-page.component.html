@@ -41,7 +41,7 @@
         <div class="container">
           <mat-form-field appearance="fill" class="width-100">
             <mat-label>Email address</mat-label>
-            <input
+            <input class="loginEmail"
               matInput
               placeholder="Ex. pat@example.com"
               type="text"
@@ -54,7 +54,7 @@
           <br/>
           <mat-form-field appearance="fill" class="width-100">
             <mat-label>Enter Password</mat-label>
-            <input
+            <input class = "loginPassword"
               matInput
               [type]="hide ? 'password' : 'text'"
               formControlName="password"

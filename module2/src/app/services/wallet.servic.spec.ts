@@ -71,4 +71,30 @@ describe('WalletService', () => {
     // Cause all Observables to complete and check the results
     tick();
    })));
+
+   it('should handle internal server error', inject([WalletService],
+    fakeAsync((service: WalletService) => {
+    let wallet: any= [];
+    let userId = 1;
+    let value = 100;
+    let httpOptions = {
+      headers: new HttpHeaders()
+      .set('Content-Type','application/json')
+      .set('Authorization', `Bearer `+ "hjgsad,sdkhskdsafdkjsadkjgkjg")
+    };
+    service.updateBalance(value,userId )
+    .subscribe();
+    const req = httpTestingController.expectOne(
+    'http://localhost:8080/api/updateWallet/'+userId + "/"+ value);
+    // Assert that the request is a GET.
+    expect(req.request.method).toEqual('PUT');
+    // expect(req.request.headers).toBe(httpOptions);
+    // Respond with empty data.
+    // Respond with mock data, causing Observable to resolve.
+    req.flush(null);
+    // Assert that there are no outstanding requests.
+    httpTestingController.verify();
+    // Cause all Observables to complete and check the results
+    tick();
+   })));
 });

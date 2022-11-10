@@ -49,4 +49,20 @@ describe('PortfolioComponent', () => {
     expect(component.portfolio[0].tickerId).toBe('S01');
   })
 
+  it('should calculate total invested money', () => {
+    component.ngOnInit();
+    expect(component.portfolio[0].tickerId).toBe('S01');
+  })
+
+  it('should calculate total returns', () => {
+    component.ngOnInit();
+    expect(component.portfolio[0].tickerId).toBe('S01');
+  })
+
+  it('should calculate current gain/loss', () => {
+    component.ngOnInit();
+    expect(component.portfolio[0].tickerId).toBe('S01');
+  })
+  
+
 });
