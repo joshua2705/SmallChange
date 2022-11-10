@@ -80,12 +80,12 @@ export class LoginPageComponent implements OnInit {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
         alert("login failed")
-        this.reloadPage();
+        // this.reloadPage();
       }
     });
   }
 
   reloadPage(): void {
-    window.location.reload();
+    // window.location.reload();
   }
 }
