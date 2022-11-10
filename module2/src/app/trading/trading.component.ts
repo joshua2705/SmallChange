@@ -131,7 +131,7 @@ export class TradingComponent implements OnInit {
       const currentDate = `${year}-${month}-${date}`;
 
       let postInput = new trade(-1,this.tokenStorage.getUser().id,this.selectedStock.id,
-      "SEL", this.selectedQuantity, this.selectedStock.price, currentDate );
+      "SEL", this.selectedQuantity, this.selectedStock.price *this.selectedQuantity, currentDate );
 
     this.tradeSer.sellStock(postInput).subscribe(
       data => {
