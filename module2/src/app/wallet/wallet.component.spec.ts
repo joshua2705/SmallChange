@@ -9,6 +9,7 @@ describe('WalletComponent', () => {
   let component: WalletComponent;
   let fixture: ComponentFixture<WalletComponent>;
 
+  
   let getWalletSpy: any;
   let updateBalanceSpy: any;
 
