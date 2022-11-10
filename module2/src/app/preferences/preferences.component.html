@@ -1,14 +1,51 @@
 <navbar> </navbar>
 
-<mat-tab-group
-    class="tabs"
-    dynamicHeight
-    mat-align-tabs="center"
-    animationDuration="500ms"
-    mat-stretch-tabs
-  >
+<div class="content">
+  <div class="container">
+    <div class="form-title">
+      Robo-Advisor Preferences
+    </div>
 
-  <mat-tab label="Your Preferences"> Content 2 </mat-tab>
-    <mat-tab label="Add Preferences"> Content 3 </mat-tab>
+    <mat-label>Investable amount</mat-label>
+    <mat-form-field >
+      <input matInput type="Number" [disabled]="confirmed" value="10000">
+    </mat-form-field>
+  
+    <br>
+    <mat-label>Expected Returns (%)</mat-label>
+    <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="5" min="1" max="25" value="8" [disabled]="confirmed"></mat-slider>
 
-  </mat-tab-group>
+    <br>
+    <mat-label>Preferred Instrument</mat-label>
+    <mat-form-field>
+      <mat-select value="MutualFunds" [disabled]="confirmed">
+        <mat-option value="Stocks">Stocks</mat-option>
+        <mat-option value="MutualFunds">Mutual Funds</mat-option>
+        <mat-option value="Bonds">Bonds</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <br>
+    <mat-label>Tenure</mat-label>
+    <br>
+    <mat-radio-group aria-label="Tenure" [disabled]="confirmed">
+      <mat-radio-button value="1">Short Term   </mat-radio-button>
+      <mat-radio-button value="2" [checked]="true">Mid Term   </mat-radio-button>
+      <mat-radio-button value="3">Long Term   </mat-radio-button>
+    </mat-radio-group>
+    
+    <br>
+    <br>
+    <mat-label>Risk Appetite</mat-label>
+    <mat-slider color="primary" thumbLabel tickInterval="1" min="1" max="5" step="1" value="3" [disabled]="confirmed"></mat-slider>
+    
+    <br>
+    <div class="footer">
+      <button type="button" class="btn btn-success" 
+            (click)="confirmed=false">EDIT</button>
+      <button  type="button" class="btn btn-success" 
+            (click)="confirmed=true; savedToast()">SAVE</button>
+    </div>
+    <br>
+  </div>
+</div>
