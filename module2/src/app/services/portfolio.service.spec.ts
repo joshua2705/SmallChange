@@ -49,4 +49,42 @@ describe('PortfolioService', () => {
     tick();
     expect(stocks.length).toBe(1);
    })));
+
+   it('should return no stocks', inject([PortfolioService],
+    fakeAsync((service: PortfolioService) => {
+    let stocks: Stock[] = [];
+    let userId = 1;
+    service.getStocks(userId)
+    .subscribe(data => stocks = data);
+    const req = httpTestingController.expectOne(
+    'http://localhost:8080/smallchange/position/Stocks/'+userId);
+    // Assert that the request is a GET.
+    expect(req.request.method).toEqual('GET');
+    // Respond with mock data, causing Observable to resolve.
+    req.flush(testStocks);
+    // Assert that there are no outstanding requests.
+    httpTestingController.verify();
+    // Cause all Observables to complete and check the results
+    tick();
+    expect(stocks.length).toBe(1);
+   })));
+
+   it('should handle internal server error', inject([PortfolioService],
+    fakeAsync((service: PortfolioService) => {
+    let stocks: Stock[] = [];
+    let userId = 1;
+    service.getStocks(userId)
+    .subscribe(data => stocks = data);
+    const req = httpTestingController.expectOne(
+    'http://localhost:8080/smallchange/position/Stocks/'+userId);
+    // Assert that the request is a GET.
+    expect(req.request.method).toEqual('GET');
+    // Respond with mock data, causing Observable to resolve.
+    req.flush(testStocks);
+    // Assert that there are no outstanding requests.
+    httpTestingController.verify();
+    // Cause all Observables to complete and check the results
+    tick();
+    expect(stocks.length).toBe(1);
+   })));
 });
