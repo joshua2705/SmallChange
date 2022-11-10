@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 
 @Component({
@@ -8,18 +9,27 @@ import { Component, OnInit } from "@angular/core";
   })
   export class PreferencesComponent implements OnInit {
 
-    availableStocks: any[] = [
-        {"id":"S01","name":"ABC","price":120},
-        {"id":"S02","name":"ABC","price":130},
-        {"id":"S03","name":"ABC","price":80},
-        {"id":"S04","name":"ABC","price":40}
-    ] ;
-    preferenceStocks: any[] = [
-        {"id":"S03","name":"ABC","price":80},
-        {"id":"S04","name":"ABC","price":40}
-    ];
+    confirmed:boolean = true;
+
+    constructor(private _snackBar:MatSnackBar){}
+
+    formatLabel(value: number | null) {
+        if (!value) {
+          return 0;
+        }
+    
+        if (value >= 1000) {
+          return Math.round(value / 1000) + 'k';
+        }
+    
+        return value;
+      }
 
     ngOnInit(): void {
         
     }
+
+    savedToast(){
+        this._snackBar.open("Preferences saved successfully","",{duration:3000})
+      }
 }
