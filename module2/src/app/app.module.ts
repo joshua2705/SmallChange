@@ -46,6 +46,7 @@ import { ChartsModule } from 'ng2-charts';
 import { StockChartComponent } from './trading/stock-chart/stock-chart.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { PreferencesComponent } from './preferences/preferences.component';
 const notifierDefaultOptions: NotifierOptions = {
   position: {
     horizontal: {
@@ -106,6 +107,7 @@ const notifierDefaultOptions: NotifierOptions = {
     WalletComponent,
     TradeModalComponent,
     StockChartComponent,
+    PreferencesComponent
 
   ],
   entryComponents:[WalletComponent],
