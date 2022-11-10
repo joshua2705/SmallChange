@@ -21,7 +21,7 @@ export class TradeHistoryComponent implements OnInit {
   astocks: trade[] = [];
   tradedList: trade[] = [];
   config: any;
-  displayedColumns: string[] = ['tradeId', 'tickerid','tradeType','quantity', 'purchasePrice','purchaseDate'];
+  displayedColumns: string[] = ['Trade Id', 'Ticker Id','Trade Type','Quantity', 'Purchase Price','Purchase Date'];
   dataSource: any = null;
   @ViewChild(MatPaginator)paginator!: MatPaginator;
   @ViewChild(MatSort)
