@@ -10,6 +10,8 @@ describe('WalletComponent', () => {
   let fixture: ComponentFixture<WalletComponent>;
 
   let getWalletSpy: any;
+  let updateBalanceSpy: any;
+
   const wallet: Wallet = {
     accountid: 1,
     userid: 3,
@@ -18,9 +20,12 @@ describe('WalletComponent', () => {
   };
 
   beforeEach(async () => {
-    let getWalletService: any = jasmine.createSpyObj('WalletService',['getBalance']);
+    let getWalletService: any = jasmine.createSpyObj('WalletService',['getBalance','updateBalance']);
     getWalletSpy = getWalletService.getBalance.and.callFake((param: Number) => {
       return of(wallet);
+    });
+    updateBalanceSpy = getWalletService.updateBalance.and.callFake((param: Number, param1: Number)=>{
+      return of(true);
     });
     await TestBed.configureTestingModule({
       declarations: [ WalletComponent ],
@@ -45,5 +50,18 @@ describe('WalletComponent', () => {
   it('should get balance data', () => {
     component.getBalance();
     expect(component.balance).toBe(2340);
+  })
+
+  it('should update balance while withdrawing money', () => {
+   
+    component.withdrawMoney(20);
+    expect(component.balance).toBe(2340);
+
+  })
+
+  it('should update balance while depositing money', () => {
+    component.depositMoney(20);
+    expect(component.balance).toBe(2340);
+    
   })
 });
